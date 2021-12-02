@@ -9,6 +9,7 @@
 			@focus="car_focus"
 			@blur="car_blur"
 		></u--input>
+		<navigator url="/pages/login/login">登录</navigator>
 	</view>
 </template>
 
@@ -43,6 +44,11 @@
 			car_blur(event){
 				alert(event.detail.value)
 			}
+		},
+		onLoad() {
+			uni.setNavigationBarTitle({
+			    title: '数帮小店'
+			});
 		}
 	}
 </script>
