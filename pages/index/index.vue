@@ -1,27 +1,48 @@
 <template>
-	<u-swiper
-			:list="list1"
-			@change="change"
-			@click="click"
-	></u-swiper>
+	<view>
+		<u-keyboard ref="uKeyboard" mode="car" :show="show" @change="valChange"  @backspace="backspace" @cancel="cancel" @confirm="confirm" :overlay="false"></u-keyboard>
+		<u--input
+			:value="value"
+			placeholder="后置图标"
+			suffixIcon="scan"
+			suffixIconStyle="color: #909399"
+			@focus="car_focus"
+			@blur="car_blur"
+		></u--input>
+	</view>
 </template>
 
 <script>
 	export default {
 		data() {
 			return {
-				list1: [
-					'https://cdn.uviewui.com/uview/swiper/swiper1.png',
-					'https://cdn.uviewui.com/uview/swiper/swiper2.png',
-					'https://cdn.uviewui.com/uview/swiper/swiper3.png',
-				]
+				value: '',
+				show: false
 			}
 		},
-		onLoad() {
-
-		},
-		methods: {
-
+		methods:{
+			valChange(val) {
+				// 将每次按键的值拼接到value变量中，注意+=写法
+				this.value += val;
+				console.log(this.value);
+			},
+			backspace() {
+				// 删除value的最后一个字符
+				if(this.value.length) this.value = this.value.substr(0, this.value.length - 1);
+				console.log(this.value);
+			},
+			confirm(){
+				this.show = false
+			},
+			cancel(){
+				this.show = false
+			},
+			car_focus(){
+				this.show = true
+			},
+			car_blur(event){
+				alert(event.detail.value)
+			}
 		}
 	}
 </script>
