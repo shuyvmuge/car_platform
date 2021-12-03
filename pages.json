@@ -10,6 +10,30 @@
 			}
 		},
 		{
+			"path": "pages/message/index",
+			"style": {
+				"navigationBarTitleText": "消息"
+			}
+		},
+		{
+			"path": "pages/pickup/index",
+			"style": {
+				"navigationBarTitleText": "接车"
+			}
+		},
+		{
+			"path": "pages/order/index",
+			"style": {
+				"navigationBarTitleText": "工单"
+			}
+		},
+		{
+			"path": "pages/center/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
 			"path": "pages/login/login",
 			"style": {
 				"navigationBarTitleText": "登录"
@@ -27,5 +51,40 @@
 		"navigationBarTitleText": "数帮小店",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+	    "color": "#8a8a8a",
+	    "selectedColor": "#208eff",
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",
+		"fontSize":"16px",
+		"iconWidth":"32px",
+		"height":"60px",
+	    "list": [{
+	        "pagePath": "pages/index/index",
+	        "iconPath": "static/imgs/home.png",
+	        "selectedIconPath": "static/imgs/home-fill.png",
+	        "text": "首页"
+	    }, {
+	        "pagePath": "pages/message/index",
+	        "iconPath": "static/imgs/message.png",
+	        "selectedIconPath": "static/imgs/message-fill.png",
+	        "text": "消息"
+	    },{
+	        "pagePath": "pages/pickup/index",
+	        "iconPath": "static/imgs/pick-up.png",
+	        "selectedIconPath": "static/imgs/pick-up-fill.png",
+	        "text": "接车"
+	    },{
+	        "pagePath": "pages/order/index",
+	        "iconPath": "static/imgs/order.png",
+	        "selectedIconPath": "static/imgs/order-fill.png",
+	        "text": "工单"
+	    },{
+	        "pagePath": "pages/center/index",
+	        "iconPath": "static/imgs/user-center.png",
+	        "selectedIconPath": "static/imgs/user-center-fill.png",
+	        "text": "我的"
+	    }]
 	}
 }
