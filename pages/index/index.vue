@@ -1,6 +1,7 @@
 <template>
-	<view class="page_edu">
-		<view class="page_edu_header">
+	<view class="page_car">
+		<u-notice-bar :text="text1" mode="closable" bgColor="#208eff" color="#ffffff"></u-notice-bar>
+		<view class="page_car_header">
 			<view class="header_content">
 				<view class="left">
 					<text class="title">功能全览</text>
@@ -26,8 +27,10 @@
 			<view class="s_menu">
 				<template v-for="(it,i) in second_menus">
 					<view class="item" :key="'s_menu_'+i">
-						<image :src="it.icon" class="image"></image>
-						<text class="txt">{{it.txt}}</text>
+						<navigator :url="it.path" class="path">
+							<image :src="it.icon" class="image"></image>
+							<text class="txt">{{it.txt}}</text>
+						</navigator>
 					</view>
 				</template>
 			</view>
@@ -55,44 +58,35 @@
 			</template>
 		</scroll-view>
 		
-		<swiper
+		<uni-group title="客户运营" top="20" mode="card">
+		<swiper 
 				:indicator-dots="true"
 				class="swiper"
 		>
-			<swiper-item>
-				<u-grid :border="false" :col="4" align="center">
+			<swiper-item 
+				v-for="(items, ind) in swiperList" 
+				:index="ind" 
+				:key="ind" >
+				<u-grid :border="false" :col="4" align="left">
 					<u-grid-item
-							v-for="(item, index) in swiperList"
+							v-for="(item, index) in items"
 							:index="index"
 							:key="index"
+							@click="toCustonData(item.id)"
 					>
 						<u-icon
 							:customStyle="{paddingTop:20+'rpx'}"
-							:name="item"
-							:size="22"
+							:name="item.name"
+							:size="14"
 						></u-icon>
-						<text class="grid-text">{{ '宫格' + (index + 1) }}</text>
-					</u-grid-item>
-				</u-grid>
-			</swiper-item>
-			<swiper-item>
-				<u-grid :border="false" :col="4" align="center">
-					<u-grid-item
-							v-for="(item, index) in swiperList"
-							:index="index + 9"
-							:key="index"
-					>
-						<u-icon
-							:customStyle="{paddingTop:20+'rpx'}"
-							:name="item"
-							:size="22"
-						></u-icon>
-						<text class="grid-text">{{ '宫格' + (index + 1) }}</text>
+						<text class="grid-text" style="color:#208eff;font-size: 20px;">{{item.num}}</text>
+						<text class="grid-text">今日+{{item.today}}</text>
 					</u-grid-item>
 				</u-grid>
 			</swiper-item>
 		</swiper>
-		
+	</uni-group>
+	
 	</view>
 </template>
 
@@ -100,7 +94,73 @@
 	export default {
 		data() {
 			return {
-				swiperList: ['integral', 'kefu-ermai', 'coupon', 'gift', 'scan', 'pause-circle', 'wifi', 'email', 'list', 'wifi', 'email', 'list'],
+				text1: 'uView UI众多组件覆盖开发过程的各个需求，组件功能丰富，多端兼容。让您快速集成，开箱即用',
+				swiperList: [
+					{
+						item1:{
+							id:1,
+							name:'保养到期',
+							num:9,
+							today:2
+						},
+						item2:{
+							id:2,
+							name:'保险到期',
+							num:2,
+							today:0
+						},
+						iteem3:{
+							id:3,
+							name:'回访',
+							num:19,
+							today:2
+						},
+						item4:{
+							id:4,
+							name:'预约',
+							num:19,
+							today:2
+						},
+						item5:{
+							id:5,
+							name:'流失预警',
+							num:19,
+							today:2
+						}
+					},
+					{
+						item6:{
+							id:6,
+							name:'保养到期',
+							num:9,
+							today:2
+						},
+						item7:{
+							id:7,
+							name:'保险到期',
+							num:2,
+							today:0
+						},
+						iteem8:{
+							id:8,
+							name:'回访',
+							num:19,
+							today:2
+						},
+						item9:{
+							id:9,
+							name:'预约',
+							num:19,
+							today:2
+						},
+						item10:{
+							id:10,
+							name:'流失预警',
+							num:19,
+							today:2
+						},
+					}
+				],
 				menus: [{
 						bg: 'linear-gradient(0deg,rgba(9,216,162,1),rgba(90,242,217,1))',
 						icon: '/static/imgs/graduation.png',
@@ -128,18 +188,22 @@
 				],
 				second_menus: [{
 						icon: '/static/imgs/exam.png',
+						path:'',
 						txt: '我的客户'
 					},
 					{
 						icon: '/static/imgs/textbook.png',
+						path:'',
 						txt: '我的业绩',
 					},
 					{
 						icon: '/static/imgs/book_ticket.png',
+						path:'',
 						txt: '出库领料'
 					},
 					{
 						icon: '/static/imgs/more.png',
+						path:'/pages/index/allop',
 						txt: '全部功能'
 					}
 				],
@@ -177,7 +241,11 @@
 
 		},
 		methods: {
-
+			toCustonData(id){
+				uni.navigateTo({
+					url: '/pages/index/customdata?id='+id
+				})
+			}
 		}
 	}
 </script>
@@ -203,11 +271,11 @@
 		@return $args / 1.5;
 	}
 
-	.page_edu {
+	.page_car {
 		width: 100%;
 	}
 
-	.page_edu_header {
+	.page_car_header {
 		padding-top: var(--status-bar-height);
 		background-color: #208eff;
 		width: 100%;
@@ -349,20 +417,22 @@
 			padding-right: 10px;
 
 			.item {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-
-				.image {
-					width: 35px;
-					height: 35px;
-				}
-
-				.txt {
-					margin-top: 5px;
-					font-size: 14px;
-					color: rgba(51, 51, 51, 1);
+				.path {
+				    display: flex;
+				    flex-direction: column;
+				    justify-content: center;
+				    align-items: center;
+					
+					.image {
+						width: 35px;
+						height: 35px;
+					}
+					
+					.txt {
+						margin-top: 5px;
+						font-size: 14px;
+						color: rgba(51, 51, 51, 1);
+					}
 				}
 			}
 		}

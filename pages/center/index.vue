@@ -3,13 +3,14 @@
     <view class="top">
       <view class="background"></view>
     </view>
+	
     <view class="user-card">
       <view class="card">
         <view class="top">
-          <view class="userImage">
-            <!-- <open-data type="userAvatarUrl"></open-data> -->
-			<image src="/static/imgs/avatar.jpg" mode="aspectFit"></image>
-          </view>
+          <!-- <view class="userImage">
+            <open-data type="userAvatarUrl"></open-data>
+          </view> -->
+		  <image src="/static/imgs/avatar.jpg" mode="aspectFit"></image>
         </view>
         <view class="bottom">
           <view class="left">
@@ -25,6 +26,7 @@
         </view>
       </view>
     </view>
+	
     <view class="list-card">
       <view class="card">
         <view class="item item-bottom-solid">
@@ -79,20 +81,20 @@
 }
 .user-card {
   height: 170rpx;
-  padding: 0 15px;
+  padding: 0 30rpx;
   .card {
     position: relative;
-    bottom: 62px;
+    bottom: 66rpx;
     height: 250rpx;
     background-color: white;
     border-radius: 5px;
     .top {
       height: 30%;
       position: relative;
-      .userImage {
+      image {
         position: absolute;
-        bottom: 24%;
-        left: 10%;
+		bottom:15%;
+		left:10%;
         width: 150rpx;
         height: 150rpx;
         overflow: hidden;
@@ -109,7 +111,7 @@
         position: relative;
         .user-text {
           width: 100%;
-          font-size: 1.6em;
+          font-size: 1.1em;
           padding-left: 80rpx;
           height: 50%;
         }
@@ -129,21 +131,21 @@
   }
 }
 .list-card {
-  padding: 0 15px;
+  padding: 0 30rpx;
   .card {
-    border-radius: 5px;
+    border-radius: 10rpx;
     position: relative;
     background-color: white;
-    border-radius: 5px;
-    padding: 5px 30px;
+    border-radius: 10rpx;
+    padding: 10rpx 60rpx;
     .item {
       display: flex;
       height: 120rpx;
       .left {
         width: 15%;
         image {
-          width: 44rpx;
-          height: 44rpx;
+          width: 40rpx;
+          height: 40rpx;
         }
       }
       .center {
@@ -151,7 +153,7 @@
         display: flex;
         justify-content: start;
         align-items: center;
-        font-size: 1.1em;
+        font-size: 14px;
       }
       .right {
         width: 20%;
@@ -165,13 +167,13 @@
 }
 .quit{
   height: 100rpx;
-  margin-top: 50px;
+  margin-top: 100rpx;
   .btn{
     background-color: #208eff;
-    border-radius: 30px;
+    border-radius: 60rpx;
     width: 80%;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.1em;
     height: 81%;
   }
 }

@@ -1,17 +1,18 @@
 {
-  "id": "uni-icons",
-  "displayName": "uni-icons 图标",
-  "version": "1.3.2",
-  "description": "图标组件，用于展示移动端常见的图标，可自定义颜色、大小。",
+  "id": "uni-group",
+  "displayName": "uni-group 分组",
+  "version": "1.2.1",
+  "description": "分组组件可用于将组件用于分组，添加间隔，以产生明显的区块",
   "keywords": [
     "uni-ui",
     "uniui",
-    "icon",
-    "图标"
+    "group",
+    "分组",
+    ""
 ],
   "repository": "https://github.com/dcloudio/uni-ui",
   "engines": {
-    "HBuilderX": "^3.2.14"
+    "HBuilderX": ""
   },
   "directories": {
     "example": "../../temps/example_temps"

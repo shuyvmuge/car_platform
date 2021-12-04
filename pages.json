@@ -10,6 +10,18 @@
 			}
 		},
 		{
+			"path": "pages/index/allop",
+			"style": {
+				"navigationBarTitleText": "全部功能"
+			}
+		},
+		{
+			"path": "pages/index/customdata",
+			"style": {
+				"navigationBarTitleText": "客户运营"
+			}
+		},
+		{
 			"path": "pages/message/index",
 			"style": {
 				"navigationBarTitleText": "消息"
@@ -57,9 +69,9 @@
 	    "selectedColor": "#208eff",
 	    "borderStyle": "black",
 	    "backgroundColor": "#ffffff",
-		"fontSize":"16px",
-		"iconWidth":"32px",
-		"height":"60px",
+		"fontSize":"14px",
+		"iconWidth":"28px",
+		"height":"56px",
 	    "list": [{
 	        "pagePath": "pages/index/index",
 	        "iconPath": "static/imgs/home.png",
