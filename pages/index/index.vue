@@ -59,106 +59,146 @@
 		</scroll-view>
 		
 		<uni-group title="客户运营" top="20" mode="card">
-		<swiper 
-				:indicator-dots="true"
-				class="swiper"
-		>
-			<swiper-item 
-				v-for="(items, ind) in swiperList" 
-				:index="ind" 
-				:key="ind" >
-				<u-grid :border="false" :col="4" align="left">
-					<u-grid-item
-							v-for="(item, index) in items"
-							:index="index"
-							:key="index"
-							@click="toCustonData(item.id)"
-					>
-						<u-icon
-							:customStyle="{paddingTop:20+'rpx'}"
-							:name="item.name"
-							:size="14"
-						></u-icon>
-						<text class="grid-text" style="color:#208eff;font-size: 20px;">{{item.num}}</text>
-						<text class="grid-text">今日+{{item.today}}</text>
-					</u-grid-item>
-				</u-grid>
-			</swiper-item>
-		</swiper>
-	</uni-group>
+			<customer-operations :list="cO_list"></customer-operations>
+		</uni-group>
 	
+		<uni-group title="经营看板" top="20" mode="card">
+			<business-kanban :list="bK_list"></business-kanban>
+		</uni-group>
 	</view>
 </template>
 
 <script>
+	import customerOperations from '@/components/customer-operations/customer-operations'
+	import businessKanban from '@/components/business-kanban/business-kanban'
 	export default {
 		data() {
 			return {
 				text1: 'uView UI众多组件覆盖开发过程的各个需求，组件功能丰富，多端兼容。让您快速集成，开箱即用',
-				swiperList: [
+				cO_list: [
 					{
-						item1:{
-							id:1,
-							name:'保养到期',
-							num:9,
-							today:2
-						},
-						item2:{
-							id:2,
-							name:'保险到期',
-							num:2,
-							today:0
-						},
-						iteem3:{
-							id:3,
-							name:'回访',
-							num:19,
-							today:2
-						},
-						item4:{
-							id:4,
-							name:'预约',
-							num:19,
-							today:2
-						},
-						item5:{
-							id:5,
-							name:'流失预警',
-							num:19,
-							today:2
-						}
+						id:1,
+						name:'保养到期',
+						num:9,
+						today:2
 					},
 					{
-						item6:{
-							id:6,
-							name:'保养到期',
-							num:9,
-							today:2
-						},
-						item7:{
-							id:7,
-							name:'保险到期',
-							num:2,
-							today:0
-						},
-						iteem8:{
-							id:8,
-							name:'回访',
-							num:19,
-							today:2
-						},
-						item9:{
-							id:9,
-							name:'预约',
-							num:19,
-							today:2
-						},
-						item10:{
-							id:10,
-							name:'流失预警',
-							num:19,
-							today:2
-						},
+						id:2,
+						name:'保险到期',
+						num:2,
+						today:0
+					},
+					{
+						id:3,
+						name:'回访',
+						num:19,
+						today:2
+					},
+					{
+						id:4,
+						name:'预约',
+						num:19,
+						today:2
+					},
+					{
+						id:5,
+						name:'流失预警',
+						num:19,
+						today:2
+					},
+					{
+						id:6,
+						name:'流失预警',
+						num:19,
+						today:2
+					},
+					{
+						id:7,
+						name:'流失预警',
+						num:19,
+						today:2
+					},
+					{
+						id:8,
+						name:'流失预警',
+						num:19,
+						today:2
+					},
+					{
+						id:9,
+						name:'流失预警',
+						num:19,
+						today:2
+					},
+					{
+						id:10,
+						name:'流失预警',
+						num:19,
+						today:2
+					},
+					{
+						id:11,
+						name:'流失预警',
+						num:19,
+						today:2
+					}
+				],
+				bK_list: [
+					{
+						id:1,
+						name:'保养到期',
+						num:9
+					},
+					{
+						id:2,
+						name:'保险到期',
+						num:2
+					},
+					{
+						id:3,
+						name:'回访',
+						num:19
+					},
+					{
+						id:4,
+						name:'预约',
+						num:19
+					},
+					{
+						id:5,
+						name:'流失预警',
+						num:19
+					},
+					{
+						id:6,
+						name:'流失预警',
+						num:19
+					},
+					{
+						id:7,
+						name:'流失预警',
+						num:19
+					},
+					{
+						id:8,
+						name:'流失预警',
+						num:19
+					},
+					{
+						id:9,
+						name:'流失预警',
+						num:19,
+						today:2
+					},
+					{
+						id:10,
+						name:'流失预警',
+						num:19
+					},
+					{
+						id:11,
+						name:'流失预警',
+						num:19
 					}
 				],
 				menus: [{
