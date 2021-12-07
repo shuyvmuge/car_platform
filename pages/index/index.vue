@@ -42,7 +42,7 @@
 				<image src="/static/tag.png" class="bg"></image>
 			</view> -->
 		</view>
-		<scroll-view scroll-x="true" class="slider">
+		<!-- <scroll-view scroll-x="true" class="slider">
 			<template v-for="(it, i) in records">
 				<view class="item" :key="'slider_item_'+i" :style="{background: it.bg, marginRight: i === records.length - 1 ? '15px' : '0px'}">
 					<view class="item_content">
@@ -56,7 +56,7 @@
 					</view>
 				</view>
 			</template>
-		</scroll-view>
+		</scroll-view> -->
 		
 		<uni-group title="客户运营" top="20" mode="card">
 			<customer-operations :list="cO_list"></customer-operations>
@@ -69,8 +69,6 @@
 </template>
 
 <script>
-	import customerOperations from '@/components/customer-operations/customer-operations'
-	import businessKanban from '@/components/business-kanban/business-kanban'
 	export default {
 		data() {
 			return {
@@ -242,6 +240,11 @@
 						txt: '出库领料'
 					},
 					{
+						icon: '/static/imgs/book_ticket.png',
+						path:'',
+						txt: '出库领料'
+					},
+					{
 						icon: '/static/imgs/more.png',
 						path:'/pages/index/allop',
 						txt: '全部功能'
@@ -319,7 +322,7 @@
 		padding-top: var(--status-bar-height);
 		background-color: #208eff;
 		width: 100%;
-		height: realSize(415px);
+		height: realSize(350px);
 
 		.header {
 			display: flex;
@@ -401,8 +404,7 @@
 
 	.page_content {
 		width: 100%;
-		margin-top: -256rpx;
-		padding-bottom: 40rpx;
+		margin-top: -150rpx;
 		.menu {
 			margin-left: 10px;
 			margin-right: 10px;

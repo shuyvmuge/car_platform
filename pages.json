@@ -30,7 +30,7 @@
 		{
 			"path": "pages/pickup/index",
 			"style": {
-				"navigationBarTitleText": "接车"
+				"navigationBarTitleText": "pickup"
 			}
 		},
 		{
@@ -86,7 +86,7 @@
 	        "pagePath": "pages/pickup/index",
 	        "iconPath": "static/imgs/pick-up.png",
 	        "selectedIconPath": "static/imgs/pick-up-fill.png",
-	        "text": "接车"
+	        "text": ""
 	    },{
 	        "pagePath": "pages/order/index",
 	        "iconPath": "static/imgs/order.png",

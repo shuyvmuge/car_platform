@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<luyj-grid-link :list="list" @gridExc="clickGrid"></luyj-grid-link>
+		<full-potential :list="list" @gridExc="clickGrid"></full-potential>
 	</view>
 </template>
 
@@ -16,21 +16,21 @@
 					color: 'blue',
 					title_show: false,
 					showAll: false,
-					colNumber: 3, // 显示的列数
+					colNumber: 4, // 显示的列数
 					iconsList: [{
-							cuIcon: 'group_fill',
+							uIcon: 'https://www.uviewui.com/common/logo.png',
 							color: 'blue',
 							name: '团队管理',
 							url: '/pages/toUrl/toUrl'
 						},
 						{
-							cuIcon: 'friendadd',
+							uIcon: 'https://www.uviewui.com/common/logo.png',
 							color: 'blue',
 							name: '无URL',
 							exec : 'add'
 						},
 						{
-							cuIcon: 'friendaddfill',
+							uIcon: 'https://www.uviewui.com/common/logo.png',
 							color: 'blue',
 							name: '无Url',
 							exec: 'invite'
@@ -44,15 +44,15 @@
 					color: 'blue',
 					title_show: true,
 					showAll: false,
-					colNumber: 5, // 显示的列数
+					colNumber: 4, // 显示的列数
 					iconsList: [{
-							cuIcon: 'text',
+							uIcon: 'https://www.uviewui.com/common/logo.png',
 							color: 'yellow',
 							name: '基本信息',
 							url: '/pages/toUrl/toUrl'
 						},
 						{
-							cuIcon: 'peoplelist',
+							uIcon: 'https://www.uviewui.com/common/logo.png',
 							color: 'blue',
 							name: '员工管理',
 							url: '/pages/toUrl/toUrl'
@@ -66,27 +66,69 @@
 					color: 'blue',
 					title_show: true,
 					showAll: false,
-					colNumber: 5, // 显示的列数
+					colNumber: 4, // 显示的列数
 					iconsList: [{
-							cuIcon: 'list',
+							uIcon: 'https://www.uviewui.com/common/logo.png',
 							color: 'yellow',
 							name: '分类',
 							url: '/pages/toUrl/toUrl'
 						},
 						{
-							cuIcon: 'goodsnew',
+							uIcon: 'https://www.uviewui.com/common/logo.png',
 							color: 'blue',
 							name: '型号',
 							url: '/pages/toUrl/toUrl'
 						},
 						{
-							cuIcon: 'shake',
+							uIcon: 'https://www.uviewui.com/common/logo.png',
 							color: 'olive',
 							name: '设备',
 							url: '/pages/toUrl/toUrl'
 						},
 						{
-							cuIcon: 'questionfill',
+							uIcon: 'https://www.uviewui.com/common/logo.png',
+							color: 'yellow',
+							name: '常见问题',
+							url: '/pages/toUrl/toUrl'
+						},
+						{
+							uIcon: 'https://www.uviewui.com/common/logo.png',
+							color: 'yellow',
+							name: '常见问题',
+							url: '/pages/toUrl/toUrl'
+						},
+						{
+							uIcon: 'https://www.uviewui.com/common/logo.png',
+							color: 'yellow',
+							name: '常见问题',
+							url: '/pages/toUrl/toUrl'
+						},
+						{
+							uIcon: 'https://www.uviewui.com/common/logo.png',
+							color: 'yellow',
+							name: '常见问题',
+							url: '/pages/toUrl/toUrl'
+						},
+						{
+							uIcon: 'https://www.uviewui.com/common/logo.png',
+							color: 'yellow',
+							name: '常见问题',
+							url: '/pages/toUrl/toUrl'
+						},
+						{
+							uIcon: 'https://www.uviewui.com/common/logo.png',
+							color: 'yellow',
+							name: '常见问题',
+							url: '/pages/toUrl/toUrl'
+						},
+						{
+							uIcon: 'https://www.uviewui.com/common/logo.png',
+							color: 'yellow',
+							name: '常见问题',
+							url: '/pages/toUrl/toUrl'
+						},
+						{
+							uIcon: 'https://www.uviewui.com/common/logo.png',
 							color: 'yellow',
 							name: '常见问题',
 							url: '/pages/toUrl/toUrl'
@@ -100,9 +142,9 @@
 					color: 'blue',
 					title_show: true,
 					showAll: false,
-					colNumber: 5, // 显示的列数
+					colNumber: 4, // 显示的列数
 					iconsList: [{
-						cuIcon: 'goodsfill',
+						uIcon: 'https://www.uviewui.com/common/logo.png',
 						color: 'red',
 						name: '权限设置',
 						url: '/pages/toUrl/toUrl'

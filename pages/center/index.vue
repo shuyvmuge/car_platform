@@ -54,6 +54,19 @@
           </view>
         </view>
       </view>
+	  <view class="card">
+	    <view class="item item-bottom-solid">
+	      <view class="left flex-center">
+	        <image src="/static/imgs/xufei.png" mode="aspectFit"></image>
+	      </view>
+	      <view class="center">
+	        <text>服务续费</text>
+	      </view>
+	      <view class="right flex-center">
+	        <u-icon class="icon" name="arrow-right"></u-icon>
+	      </view>
+	    </view>
+	  </view>
     </view>
      <view class="quit flex-center">
         <view class="btn flex-center">
