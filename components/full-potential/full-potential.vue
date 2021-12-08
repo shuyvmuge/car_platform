@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<block v-for="(items,indexs) in list"  :key="indexs">
-		<uni-group :title="items.title" top="20" mode="card">
+		<uni-group :title="items.title" mode="card">
 			<u-grid
 					:border="false"
 					:col="items.colNumber"
