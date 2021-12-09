@@ -1,9 +1,6 @@
 <template>
 	<view class="uni-group" :class="['uni-group--'+mode ,margin?'group-margin':'']" :style="{marginTop: `${top}px` }">
 		<slot name="title">
-			<view class="group_icon_con">
-				<view class="group_icon"></view>
-			</view>
 			<view v-if="title" class="uni-group__title" :style="{'padding-left':border?'30px':'15px'}">
 				<text class="uni-group__title-text">{{ title }}</text>
 			</view>
@@ -86,25 +83,11 @@
 		margin-top: 10px;
 		// border: 1px red solid;
 	}
+
 	.group-margin {
 		// margin: 0 -15px;
 	}
 
-	.group_icon_con{
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		float: left;
-		height: 40px;
-		width: 5px;
-		background-color: #eee;
-		.group_icon{
-			background-color: #208eff;
-			width: 100%;
-			height: 22px;
-		}
-	}
-	
 	.uni-group__title {
 		/* #ifndef APP-NVUE */
 		display: flex;
@@ -130,7 +113,7 @@
 
 	.uni-group__title-text {
 		font-size: 14px;
-		color: #333333;
+		color: #666;
 	}
 
 	.distraction {

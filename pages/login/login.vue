@@ -1,7 +1,10 @@
 <template>
 	<view class="sun-index">		<view class="sun-logo-box">			<view class="sun-logo">				<image class="sun-icon-img" src="@/static/imgs/fire_white.png"/>			</view>		</view>
 		<view class="sun-login-box">			<view class="sun-label">				<u-icon name="phone" size="30" color="#272e2d"></u-icon>				<text class="label-text">手机</text>			</view>			<view class="sun-input-box">				<input v-model="mobile" type="text" placeholder="请输入手机号" placeholder-class="placeholder-class"/>
-				<u-icon v-show="mobile" @click="mobile=''" name="close-circle" size="28" color="#d4d7d6"></u-icon>			</view>		</view>		<view class="sun-login-box">			<view class="sun-label">				<u-icon name="lock" size="30" color="#272e2d"></u-icon>				<text class="label-text">密码</text>			</view>			<view class="sun-input-box">				<input v-model="password" type="password" placeholder="请输入密码" placeholder-class="placeholder-class"/>				<u-icon v-show="password" @click="password=''" name="close-circle" size="28" color="#d4d7d6"></u-icon>			</view>		</view>		<view class="sun-tip">			<text class="sun-tip-text">忘记密码/解绑</text>			<text class="sun-tip-text" @click="goRegister">申请账号</text>		</view>		<view class="login-btn-box">			<view class="login-btn" @click="handleSubmit">登录</view>		</view>
+				<u-icon v-show="mobile" @click="mobile=''" name="close-circle" size="28" color="#d4d7d6"></u-icon>			</view>		</view>		<view class="sun-login-box">			<view class="sun-label">				<u-icon name="lock" size="30" color="#272e2d"></u-icon>				<text class="label-text">密码</text>			</view>			<view class="sun-input-box">				<input v-model="password" type="password" placeholder="请输入密码" placeholder-class="placeholder-class"/>				<u-icon v-show="password" @click="password=''" name="close-circle" size="28" color="#d4d7d6"></u-icon>			</view>		</view>		<view class="sun-tip">			<text class="sun-tip-text">忘记密码/解绑</text>			<text class="sun-tip-text" @click="goRegister">申请账号</text>		</view>
+		
+		<car-btn title="登录" @click="handleSubmit"></car-btn>
+		
 		<u-toast ref="uToast" style="bottom: 90rpx;"></u-toast>	</view>
 </template>
 

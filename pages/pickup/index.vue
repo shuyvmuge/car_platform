@@ -1,7 +1,7 @@
 <template>
 	<view class="car_form">
-		<u--form :model="form" ref="uForm" labelPosition="left">
-			<uni-group title="车辆信息" mode="card">
+		<u-form :model="form" ref="uForm" labelPosition="left">
+				<uni-card>
 				<u-form-item class="u-form-item"  labelWidth="80" label="无车牌" prop="form.nonumber">
 					<u-switch class="nocard" slot="right" v-model="form.nonumber" activeColor="#208eff" inactiveColor="rgb(230, 230, 230)" @change="cardchange"></u-switch>
 				</u-form-item>
@@ -11,15 +11,17 @@
 						labelWidth="80"
 						prop="form.number"
 						borderBottom="true"
-						@click="showNumber"
 				>
-					<u--input
-						v-model="form.number"
-						disabled
-						disabledColor="#ffffff"
-						placeholder="请输入"
-						border="none"
-					></u--input>
+					<view @click="plateShow = true">
+						<u--input
+							v-model="plateNo"
+							disabled
+							disabledColor="#ffffff"
+							placeholder="请输入"
+							border="none"
+						></u--input>
+					</view>
+					<uni-plate-input v-if="plateShow" :plate="plateNo" @export="setPlate" @close="closeB"></uni-plate-input>
 					<u-icon
 						slot="right"
 						name="scan"
@@ -48,7 +50,7 @@
 						borderBottom="true"
 				>
 					<u--input
-						v-model="form.brand"
+						v-model="form.cmodel"
 						disabledColor="#ffffff"
 						placeholder="请输入车型"
 						border="none"
@@ -64,13 +66,12 @@
 					<u--input
 						v-model="form.kl"
 						disabledColor="#ffffff"
-						placeholder="请输入车型"
+						placeholder="请输入公里数"
 						border="none"
 					></u--input>
 				</u-form-item>
-			</uni-group>
-			
-			<uni-group title="车主信息" mode="card">
+				</uni-card>
+				<uni-card>
 				<u-form-item
 						class="u-form-item"
 						label="姓名"
@@ -88,29 +89,24 @@
 				<u-form-item
 						class="u-form-item"
 						label="手机"
-						labelWidth="80"
+						labelWidth="80" 
 						prop="form.tel"
 						borderBottom="true"
 				>
-					<u--input
+					<u-input
 						v-model="form.tel"
 						disabledColor="#ffffff"
 						placeholder="请输入客户手机"
 						border="none"
-					></u--input>
+					></u-input>
 				</u-form-item>
-			</uni-group>
-			<uni-group title="开单类型" mode="card">
+				</uni-card>
+				
+				<uni-card >
 				<u-form-item
 						class="u-form-item"
-						label=""
 						prop="form.standtype"
 				>
-				<!-- <view class="scroll">
-					<view class="scroll_item">
-						
-					</view>
-				</view> -->
 				<u-radio-group
 					class="u-radio-group"
 				    v-model="form.standtype"
@@ -118,7 +114,7 @@
 					shape="square"
 				  >
 				    <u-radio
-				      :customStyle="{marginBottom: '8px'}"
+				      :customStyle="{margin: 'auto 60rpx 60rpx 0'}"
 				      v-for="(item, index) in radiolist1"
 				      :key="index"
 				      :label="item.name"
@@ -127,17 +123,18 @@
 				    </u-radio>
 				  </u-radio-group>
 				</u-form-item> 
-			</uni-group>
-		</u--form>
-		
-		</u--form>
+				</uni-card>
+		<car-btn title="确定" style="margin-top: 0"></car-btn> 
+		</u-form>
 	</view>
 </template>
-
+ 
 <script>
 export default {
 	data() {
 		return {
+			plateNo: '',
+			plateShow: false,
 			form: {
 				nonumber:0,
 				number: '',
@@ -149,19 +146,21 @@ export default {
 				standtype:'',
 				fasttype:''
 			},
-			radiolist1:[
-				{
-					name:'meinv'
+			radiolist1:[{
+					name:'保养'
 				},{
-					name:'meinv'
+					name:'洗车'
 				},{
-					name:'meinv'
+					name:'施工单'
 				},{
-					name:'meinv'
+					name:'报价单'
 				},{
-					name:'meinv'
-				}
-			],
+					name:'定金单'
+				},{
+					name:'检车单'
+				},{
+					name:'保险单'
+			}],
 			rules: {
 				name: [
 					{
@@ -181,8 +180,12 @@ export default {
 				uni.$u.toast('校验失败')
 			})
 		},
-		showNumber(){
-			console.log(1)
+		setPlate(plate) {
+			if (plate.length >= 7) this.plateNo = plate;
+			this.plateShow = false;
+		},
+		closeB(){
+			this.plateShow = false;
 		}
 	},
 };
@@ -190,7 +193,6 @@ export default {
 
 <style lang="scss" scoped>
 .car_form{
-	margin: 30rpx;
 	.u-form-item{
 		margin: 10rpx auto;
 		.u-radio-group{

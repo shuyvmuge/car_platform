@@ -68,11 +68,7 @@
 	    </view>
 	  </view>
     </view>
-     <view class="quit flex-center">
-        <view class="btn flex-center">
-          退出登录
-        </view>
-     </view>
+	<car-btn title="退出登录"></car-btn>
   </view>
 </template>
  <style lang="scss" scoped>
@@ -178,23 +174,7 @@
 .item-bottom-solid {
   border-bottom: 1px solid #d4d6da;
 }
-.quit{
-  height: 100rpx;
-  margin-top: 100rpx;
-  .btn{
-    background-color: #208eff;
-    border-radius: 60rpx;
-    width: 80%;
-    color: white;
-    font-size: 1.1em;
-    height: 81%;
-  }
-}
-.flex-center{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 </style>
  
 <script>

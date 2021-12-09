@@ -38,7 +38,8 @@
 				<u-icon v-show="passconfirm" @click="passconfirm=''" name="close-circle" size="28" color="#d4d7d6"></u-icon>
 			</view>
 		</view>
-				<view class="login-btn-box">			<view class="login-btn" @click="handleSubmit">提交审核</view>		</view>	</view>
+		
+		<car-btn title="提交审核" @click="handleSubmit"></car-btn>	</view>
 </template>
 
 <script>
@@ -61,4 +62,4 @@
 	}
 </script>
 
-<style scoped>	.sun-login-box {		padding: 20rpx 60rpx;	}	.sun-label {		display: flex;		align-items: center;	}	.label-text {		margin-left: 16rpx;		font-weight: 500;		color: #272e2d;		font-size: 30rpx;	}	.sun-input-box {		display: flex;		align-items: center;		height: 100rpx;		border-bottom: 1rpx solid #eee;		padding: 0px 10rpx;	}	.sun-input-box input {		flex: 1;	}	.placeholder-class {		font-size: 30rpx;		color: #C0C0C0;	}	.sun-tip {		display: flex;		justify-content: space-between;		padding: 0rpx 68rpx;	}	.sun-tip-text {		color: #30C6B3;	}	.login-btn-box {		width: 750rpx;		padding: 50rpx 68rpx 129rpx;	}	.login-btn {		height: 82rpx;		border-radius: 41rpx;		background-color: #208eff;		/* box-shadow: -1px 12px 11px 0px rgba(16, 170, 157, 0.4); */		text-align: center;		line-height: 82rpx;		font-size: 36rpx;		font-weight: 500;		color: #fff;	}	.code-text {		font-size: 28rpx;		color: #208eff;	}	.gray {		color: #C0C0C0;	}</style>
+<style scoped>	.sun-login-box {		padding: 20rpx 60rpx;	}	.sun-label {		display: flex;		align-items: center;	}	.label-text {		margin-left: 16rpx;		font-weight: 500;		color: #272e2d;		font-size: 30rpx;	}	.sun-input-box {		display: flex;		align-items: center;		height: 100rpx;		border-bottom: 1rpx solid #eee;		padding: 0px 10rpx;	}	.sun-input-box input {		flex: 1;	}	.placeholder-class {		font-size: 30rpx;		color: #C0C0C0;	}	.sun-tip {		display: flex;		justify-content: space-between;		padding: 0rpx 68rpx;	}	.sun-tip-text {		color: #30C6B3;	}		.code-text {		font-size: 28rpx;		color: #208eff;	}	.gray {		color: #C0C0C0;	}</style>
