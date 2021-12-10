@@ -1,7 +1,3 @@
-/**
-* @author minisola
-* @version 20190814
-*/
 <template>
 	<view class="so-mask">
 		<view class="so-plate animation-scale-up">

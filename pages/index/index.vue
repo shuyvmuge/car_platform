@@ -58,16 +58,16 @@
 			</template>
 		</scroll-view> -->
 		
-		<uni-group title="客户运营" mode="card">
+		<car-group title="客户运营" mode="card">
 			<customer-operations :list="cO_list"></customer-operations>
-		</uni-group>
+		</car-group>
 	
-		<uni-group title="经营看板" mode="card">
+		<car-group title="经营看板" mode="card">
 			<business-kanban :list="bK_list"></business-kanban>
-		</uni-group>
+		</car-group>
 	</view>
 </template>
-
+ 
 <script>
 	export default {
 		data() {
