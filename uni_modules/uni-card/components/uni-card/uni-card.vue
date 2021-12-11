@@ -183,7 +183,8 @@
 				margin-right: $uni-card-spacing;
 				.uni-card__header-avatar-image {
 					flex: 1;
-					width: 40px;
+					width: 100%;
+					height: 100%;
 				}
 			}
 

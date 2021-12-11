@@ -34,6 +34,12 @@
 			}
 		},
 		{
+			"path": "pages/pickup/firstsee",
+			"style": {
+				"navigationBarTitleText": "初检"
+			}
+		},
+		{
 			"path": "pages/order/index",
 			"style": {
 				"navigationBarTitleText": "工单"

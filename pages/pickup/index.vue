@@ -6,6 +6,22 @@
 					<u-switch class="nocard" slot="right" v-model="form.nonePlateNo" activeColor="#208eff" inactiveColor="rgb(230, 230, 230)" @change="cardchange"></u-switch>
 				</u-form-item>
 				<u-form-item
+						v-show="form.nonePlateNo"
+						class="u-form-item"
+						label="备注:"
+						labelWidth="80"
+						prop="form.remarks"
+						borderBottom="true"
+				>
+					<u-input
+						v-model="form.remarks"
+						disabledColor="#ffffff"
+						placeholder="请备注说明"
+						border="none"
+					></u-input>
+				</u-form-item>
+				<u-form-item
+						v-show="!form.nonePlateNo"
 						class="u-form-item"
 						label="车牌"
 						labelWidth="80"
@@ -68,6 +84,7 @@
 						disabledColor="#ffffff"
 						placeholder="请输入公里数"
 						border="none"
+						type="number"
 					></u-input>
 				</u-form-item>
 				</uni-card>
@@ -98,6 +115,7 @@
 						disabledColor="#ffffff"
 						placeholder="请输入客户手机"
 						border="none"
+						type="number"
 					></u-input>
 				</u-form-item>
 				</uni-card>
@@ -115,7 +133,7 @@
 				  >
 				    <u-radio
 				      :customStyle="{margin: 'auto 60rpx 60rpx 0'}"
-				      v-for="(item, index) in orderType"
+				      v-for="(item, index) in orderTypes"
 				      :key="index"
 				      :label="item.name"
 				      :name="item.typeId"
@@ -124,7 +142,7 @@
 				  </u-radio-group>
 				</u-form-item> 
 				</uni-card>
-		<car-btn title="确定" style="margin-top: 0" @click="submit"></car-btn> 
+		<car-btn title="确定" style="margin-top: 0;" @click="submit"></car-btn> 
 		</u-form>
 	</view>
 </template>
@@ -135,16 +153,18 @@ export default {
 		return {
 			plateNo: '',
 			plateShow: false,
+			remarks:'',
 			form: {
-				nonePlateNo:0,
-				plateNo: '',
+				nonePlateNo:false,
+				plateNo: this.plateNo,
 				brand:'',
 				cmodel:'',
 				kl:'',
 				username:'',
-				tel:''
+				tel:'',
+				orderType:''
 			},
-			orderType:[{
+			orderTypes:[{
 					typeId:1,
 					name:'保养'
 				},{
@@ -165,26 +185,20 @@ export default {
 				},{
 					typeId:7,
 					name:'保险单'
-			}],
-			rules: {
-				name: [
-					{
-						required: true,
-						message: '请输入姓名',
-						trigger: ['blur', 'change']
-					}
-				]
-			}
-		};
+			}]
+		}
 	},
 	methods: {
 		submit() {
-			this.$refs.uForm.validate().then(res => {
-				uni.$u.toast('校验通过')
-			}).catch(errors => {
-				uni.$u.toast('校验失败')
+			if( this.form.nonePlateNo == false && !this.form.plateNo) return uni.$u.toast('请输入正确的车牌号');
+			if( !this.form.orderType) return uni.$u.toast('请选择开单类型');
+			uni.navigateTo({
+				url:'/pages/pickup/firstsee'
 			})
 			console.log(this.form)
+		},
+		cardchange(){
+			console.log('noplateNo')
 		},
 		setPlate(plate) {
 			if (plate.length >= 7) this.form.plateNo = plate;
@@ -193,7 +207,7 @@ export default {
 		closeB(){
 			this.plateShow = false;
 		}
-	},
+	}
 };
 </script> 
 
