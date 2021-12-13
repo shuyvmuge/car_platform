@@ -122,23 +122,6 @@
 								prop:'electrical'
 							}
 						]
-					},
-					{
-						title:'fei常规检查',
-						list:[
-							{
-								title:'外观',
-								status:true,
-							},
-							{
-								title:'内饰',
-								status:true,
-							},
-							{
-								title:'电器',
-								status:true,
-							}
-						]
 					}
 				]
 			}

@@ -40,6 +40,12 @@
 			}
 		},
 		{
+			"path": "pages/pickup/detail",
+			"style": {
+				"navigationBarTitleText": "车辆详情"
+			}
+		},
+		{
 			"path": "pages/order/index",
 			"style": {
 				"navigationBarTitleText": "工单"
