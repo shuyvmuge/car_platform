@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<block v-for="(items,indexs) in list"  :key="indexs">
-		<uni-group :title="items.title" mode="card">
+		<car-group :title="items.title" mode="card">
 			<u-grid
 					:border="false"
 					:col="items.colNumber"
@@ -23,7 +23,7 @@
 					<u-icon  v-else label="收起" labelPos="bottom" size="28" labelSize="14" name="/static/imgs/sq.png"></u-icon>
 				</u-grid-item>
 			</u-grid>
-		</uni-group>
+		</car-group>
 		</block>
 	</view>
 </template>

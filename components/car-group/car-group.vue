@@ -84,7 +84,7 @@
 		.group_icon{
 			background-color: #208eff;
 			width: 100%;
-			height: 22px;
+			height: 14px;
 		}
 	}
 	
@@ -102,7 +102,7 @@
 	}
 
 	.car-group__content {
-		padding: 15px;
+		// padding: 15px;
 		// padding-bottom: 5px;
 		// background-color: #FFF;
 	}

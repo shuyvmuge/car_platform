@@ -81,7 +81,7 @@
 				<view @click="items.modal = true">+添加检查项</view>
 			</view>
 		</uni-card>
-		
+		<car-btn title="确定"></car-btn>
 	</view>
 </template>
 

@@ -59,7 +59,7 @@
 			align-items: center;
 			padding: 10rpx;
 			margin: 10rpx 0;
-			border-bottom: 1px solid #eee;
+			// border-bottom: 1px solid #eee;
 			.item_title{
 				font-size: 14px;
 				color: #333333;

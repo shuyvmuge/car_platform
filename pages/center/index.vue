@@ -73,14 +73,14 @@
 </template>
  <style lang="scss" scoped>
 .top {
-  height: 250rpx;
+  height: 200rpx;
   position: relative;
   .background {
     background-color: #208eff;
     border-bottom-left-radius: 22px;
     border-bottom-right-radius: 22px;
     position: absolute;
-    height: 200rpx;
+    height: 300rpx;
     width: 100%;
   }
 }
@@ -115,14 +115,14 @@
       display: flex;
       height: 70%;
       .left {
-        width: 80%;
+		width: 84%;
         height: 100%;
         position: relative;
         .user-text {
           width: 100%;
           font-size: 1.1em;
           padding-left: 80rpx;
-          height: 50%;
+          height: 40%;
         }
         .user-phone {
           color: #96a1ae;
@@ -133,7 +133,7 @@
         }
       }
       .right {
-        width: 20%;
+		  width: 10%;
         height: 50%;
       }
     }
@@ -146,26 +146,25 @@
     position: relative;
     background-color: white;
     border-radius: 10rpx;
-    padding: 10rpx 60rpx;
+    padding: 10rpx 30rpx;
     .item {
       display: flex;
-      height: 120rpx;
+      padding: 20rpx;
       .left {
-        width: 15%;
+        width: 10%;
         image {
           width: 40rpx;
           height: 40rpx;
         }
       }
       .center {
-        width: 65%;
+        width: 80%;
         display: flex;
         justify-content: start;
         align-items: center;
         font-size: 14px;
       }
       .right {
-        width: 20%;
         justify-content: flex-end;
       }
     }
