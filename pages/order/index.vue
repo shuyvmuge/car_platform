@@ -1,19 +1,18 @@
 <template>
-	<view class="content">
-		<view>
-			<view class="">
-				<view>最多选 {{ max }} 个</view>
-				<view>已选 {{ count }} 个</view>
-				<button @click="getCurrentItem">获取当前索引</button>
-			</view>
-			
-			<long-categories
-				ref="long"
-				:list="list"
-				:maxSelected="max"
-				@change="change"
-			>
-			</long-categories>
+	<view>
+		<u-search
+			v-model="value2"
+			:show-action="false"
+			shape="square"
+		></u-search>
+		<view class="content">
+				<long-categories
+					ref="long"
+					:list="list"
+					:maxSelected="max"
+					@change="change"
+				>
+				</long-categories>
 		</view>
 	</view>
 </template>
@@ -29,90 +28,97 @@
 						children:[
 							{
 								id:1,
-								name:'粤EP9875'
+								name:'粤111111',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:2,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
 							}
-						]
+						],
+						selectedIds:{}
 					},{
-						id:1,
+						id:2,
 						name:'待查车',
 						children:[
 							{
 								id:1,
-								name:'粤EP9875'
+								name:'粤222222',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/026.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:2,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/026.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/026.jpg',
+								checked: false,
+								disabled: false
 							}
-						]
+						],
+						selectedIds:{}
 					},{
-						id:1,
-						name:'待查车',
+						id:3,
+						name:'待报价',
 						children:[
 							{
 								id:1,
-								name:'粤EP9875'
+								name:'粤333333',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:2,
+								name:'粤EP9875',
+								date:'2021-12-18 01:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
 							}
-						]
-					},{
-						id:1,
-						name:'待查车',
-						children:[
-							{
-								id:1,
-								name:'粤EP9875'
-							}
-						]
-					},{
-						id:1,
-						name:'待查车',
-						children:[
-							{
-								id:1,
-								name:'粤EP9875'
-							}
-						]
-					},{
-						id:1,
-						name:'待查车',
-						children:[
-							{
-								id:1,
-								name:'粤EP9875'
-							}
-						]
-					},{
-						id:1,
-						name:'待查车',
-						children:[
-							{
-								id:1,
-								name:'粤EP9875'
-							}
-						]
-					},{
-						id:1,
-						name:'待查车',
-						children:[
-							{
-								id:1,
-								name:'粤EP9875'
-							}
-						]
-					},
+						],
+						selectedIds:{}
+					}
 				],
 				count: 0,
 				max: 10
 			}
 		},
-		onLoad() {
-			this.init()
-		},
 		methods: {
-			init () {
-			},
 			change (data) {
 				this.count = data.length
 				console.log(data)
 			},
 			getCurrentItem () {
-				console.log(this.list)
+				console.log(this.$refs.long.getActive())
 			}
 		}
 	}
@@ -120,6 +126,7 @@
 
 <style>
 	.content {
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

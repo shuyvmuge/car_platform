@@ -1,53 +1,46 @@
 <template>
-	<view>
-		<view class="long-categories">
-			<view class="left">
-				<scroll-view 
-					:scroll-with-animation="true"
-					scroll-y 
-					:style="`height:${ height }px`"
+	<view class="long-categories">
+		<view class="left">
+			<scroll-view 
+				:scroll-with-animation="true"
+				scroll-y 
+				:style="`height:${ height }px`"
+			>
+				<view 
+					class="left-item" 
+					v-for="(item,index) in list" 
+					:key="index"
+					:class="{'left-item-active': index == active }"
+					@click="categoryClick(item, index)"
 				>
-					<view 
-						class="left-item" 
-						v-for="(item,index) in list" 
-						:key="index"
-						:class="{'left-item-active': index == active }"
-						@click="categoryClick(item, index)"
+					<view class="left-item-icon" v-if="index == active"></view>
+					<view class="left-item-title"> {{ item.name }}</view>
+				</view>
+			</scroll-view>
+		</view>
+		<view class="right">
+			<scroll-view scroll-y
+				@scroll="scroll" 
+				:style="`height: ${ height }px`" 
+				scroll-with-animation
+				:scroll-into-view="cIndex"
+				@scrolltolower="scrollToBottom"
+			>
+				<view class="right-container" v-for="(item,index) in list" :key="index">
+					<uni-list
+						v-show="index == active"
+						v-for="(child, index1) in item.children"
+						:key="index1" 
+						@click="itemClick(item, child)"
 					>
-						{{ item.name }}
-					</view>
-				</scroll-view>
-			</view>
-			<view class="right">
-				<scroll-view scroll-y
-					@scroll="scroll" 
-					:style="`height: ${ height }px`" 
-					scroll-with-animation
-					:scroll-into-view="cIndex"
-					@scrolltolower="scrollToBottom"
-				>
-					<view class="right-container" v-for="(item,index) in list" :key="index">
-						<view class="category-name" :id="`cid${ item.id }`">
-							<view class="line"></view>
-							<view class="txt">
-								{{ item.name }}
-							</view>
-							<view class="line"></view>
-						</view>
-						<view class="category-content">
-							<view
-								v-for="(child, index1) in item.children" 
-								:key="index1" 
-								class="right-item"
-								@click="itemClick(item, child)"
-							>
-								<view>{{ child['name'] }}</view>
-							</view>
-						</view>
-						
-					</view>
-				</scroll-view>
-			</view>
+						<uni-list-item :title="child['name']" :note="child['date']" link>
+							<template slot="header">
+								<image class="slot-image" :src="child['img']" mode="widthFix"></image>
+							</template>
+						</uni-list-item>
+					</uni-list>
+				</view>
+			</scroll-view>
 		</view>
 	</view>
 </template>
@@ -150,87 +143,66 @@
 	.long-categories {
 		display: flex;
 		width: 100%;
-		flex-wrap: wrap;
+		// flex-wrap: wrap;
 	}
 
 	.left {
-		width: 194upx;
+		width: 30%;
 		background: #f8f8f8;
 	}
 
 	.left-item {
-		height: 88upx;
-		font-size: 28upx;
+		font-size: 28rpx;
 		color: #333333;
 		display: flex;
 		align-items: center;
-		justify-content: space-evenly;
-		.num {
-			width: 38upx;
-			height: 38upx;
-			line-height: 38upx;
-			background: #F67124;
-			border-radius: 50%;
-			color: #FFFFFF;
-			font-size: 16upx;
-			font-weight: normal;
-			text-align: center;
+		justify-content: flex-start;
+		padding: 40rpx 30rpx;
+		.left-item-icon{
+			background-color: #208eff;
+			width: 5px;
+			height: 14px;
+			margin-right: 20rpx;
 		}
 	}
 	
+	.left-item-active {
+		background: #FFFFFF;
+		color: #208eff;
+		font-weight: bold;
+		padding-left: 0;
+	}
+	
 	.right {
-		width: 74%;
+		width: 70%;
 		background: #FFFFFF;
 	}
 	
 	.right-container {
-		.category-name {
-			padding: 20upx;
-			text-align: center;
-			.line {
-			    display: inline-block;
-			    width: 40upx;
-			    border-top: 2upx solid grey;
-			}
-			.txt {
-				padding: 0 8upx;
-				display: inline-block;
-				vertical-align: middle;
-			}
-		}
-		.category-content {
-			display: flex;
-			flex-wrap: wrap;
-			padding: 32upx 18upx 0 18upx;
+		width: 100%;
+		.slot-image{
+			width: 120rpx;
+			height: 120rpx;
 		}
 		
 	}
 
 	.right-item {
-		margin-left: 32upx;
-		margin-bottom: 42upx;
-		width: 132upx;
-		height: 72upx;
-		line-height: 72upx;
+		margin-left: 32rpx;
+		margin-bottom: 42rpx;
+		width: 100%;
+		height: 72rpx;
+		line-height: 72rpx;
 		background: #FFFFFF;
-		border: 2upx solid #338B61;
+		border: 2rpx solid #338B61;
 		opacity: 1;
-		border-radius: 16upx;
-		font-size: 28upx;
+		border-radius: 16rpx;
+		font-size: 28rpx;
 		text-align: center;
 		color: #338B61;
 		font-weight: bold;
 	}
-	.right-item-active {
-		background-color: #338B61;
-		color: #FFFFFF;
-	}
-	
-	.right-item-disable {
-		background: #EFEFEF;
-		color: #666666;
-		border-color: #EFEFEF;
-	}
+
 
 	.right-item image {
 		width: 50px;

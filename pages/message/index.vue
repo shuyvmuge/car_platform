@@ -1,5 +1,11 @@
 <template>
-	<view>消息</view>
+	<view>
+		<u-search
+			v-model="value2"
+			:show-action="true"
+			margin="30rpx 20rpx"
+		></u-search>
+	</view>
 </template>
 
 <script>
