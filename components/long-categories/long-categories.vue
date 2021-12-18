@@ -4,7 +4,7 @@
 			<scroll-view 
 				:scroll-with-animation="true"
 				scroll-y 
-				:style="`height:${ height }px`"
+				:style="`height:${ height }rpx`"
 			>
 				<view 
 					class="left-item" 
@@ -21,7 +21,7 @@
 		<view class="right">
 			<scroll-view scroll-y
 				@scroll="scroll" 
-				:style="`height: ${ height }px`" 
+				:style="`height: ${ height }rpx`" 
 				scroll-with-animation
 				:scroll-into-view="cIndex"
 				@scrolltolower="scrollToBottom"
@@ -31,9 +31,13 @@
 						v-show="index == active"
 						v-for="(child, index1) in item.children"
 						:key="index1" 
-						@click="itemClick(item, child)"
+						:border="false"
 					>
-						<uni-list-item :title="child['name']" :note="child['date']" link>
+						<uni-list-item 
+						:title="child['name']" 
+						:note="child['date']" 
+						@click="itemClick(item, child)"
+						link>
 							<template slot="header">
 								<image class="slot-image" :src="child['img']" mode="widthFix"></image>
 							</template>
@@ -93,6 +97,9 @@
 				this.active = index;
 			},
 			itemClick (category, item) {
+				uni.navigateTo({
+					url:'/pages/pickup/detail?id='+item.id
+				})
 				console.log('itemClick')
 			},
 			getValues () {
@@ -128,7 +135,7 @@
 		mounted() {
 			uni.getSystemInfo({
 				success: res => {
-					this.height = res.screenHeight - 230;
+					this.height = (res.screenHeight - 144)*2;
 				}
 			})
 			this.getNodesInfo()
@@ -147,7 +154,7 @@
 	}
 
 	.left {
-		width: 30%;
+		width: 25%;
 		background: #f8f8f8;
 	}
 
@@ -174,7 +181,7 @@
 	}
 	
 	.right {
-		width: 70%;
+		width: 75%;
 		background: #FFFFFF;
 	}
 	

@@ -193,7 +193,6 @@
 		align-items: center;
 		position: relative;
 		overflow: hidden;
-
 		&__wrapper {
 			flex: 1;
 

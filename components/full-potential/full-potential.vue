@@ -9,13 +9,16 @@
 				<u-grid-item
 						v-for="(item,index) in items.iconsList"
 						:key="index"
-						 v-show="index > 6?kg:true"
+						v-show="index > 6?kg:true"
 				>
-					<u-icon size="40" labelSize="14"
-					:customStyle="{paddingTop:20+'rpx'}"
-							:name="item.uIcon"
-					></u-icon>
-					<text class="grid-text">{{item.name}}</text>
+					<view class="auth-item" @click="jumpPage(item)">
+						<u-icon size="40" labelSize="14"
+						:customStyle="{paddingTop:20+'rpx'}"
+								:name="item.uIcon"
+						></u-icon>
+						<text class="grid-text">{{item.name}}</text>
+					</view>
+					
 				</u-grid-item>
 				
 				<u-grid-item  @click="kg = !kg" v-show="items.iconsList.length > 6">
@@ -53,37 +56,26 @@
 			
 		},
 		methods:{
-			/** 连接到页或执行方法
-			 * @param {Object} e
-			 */
-			navigateTo(e) {
-				var url = e.currentTarget.dataset.url; // 连接的页面
+			jumpPage(item) {
+				console.log(item)
+				var title = item.name?item.name:''
+				var url = item.url+'?title='+title
 				if (url != undefined) {
 					// 跳转到页面
 					uni.navigateTo({
 						url: url
 					});
-				} else {
-					var exec = e.currentTarget.dataset.exec;
-					this.$emit("gridExc" ,e);			// 点击某一宫格时执行方法
 				}
 			},
-			/** 展开或折叠当前宫格
-			 * @param {Object} e
-			 */
-			showAllGrid(e) {
-				var cur_grid = e.currentTarget.dataset.cur;
-				// 获取当前列
-				var tabber = this.tabber_list.find(function(item) {
-					return item.cur == cur_grid;
-				})
-				if (tabber != undefined) {
-					tabber.showAll = !tabber.showAll;
-				}
-			},
+	
 		}
 	}
 </script>
-<style>
-	
+<style scoped>
+	.auth-item{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 </style>

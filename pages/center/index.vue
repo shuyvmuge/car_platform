@@ -171,7 +171,7 @@
   }
 }
 .item-bottom-solid {
-  border-bottom: 1px solid #d4d6da;
+  // border-bottom: 1px solid #d4d6da;
 }
 
 </style>

@@ -1,7 +1,6 @@
 <template>
 	<view>
 		<u-search
-			v-model="value2"
 			:show-action="false"
 			shape="square"
 		></u-search>
@@ -115,11 +114,14 @@
 		methods: {
 			change (data) {
 				this.count = data.length
-				console.log(data)
+				// console.log(data)
 			},
 			getCurrentItem () {
 				console.log(this.$refs.long.getActive())
 			}
+		},
+		onLoad() {
+			
 		}
 	}
 </script>

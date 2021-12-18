@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<full-potential :list="list" @gridExc="clickGrid"></full-potential>
+		<full-potential :list="list"></full-potential>
 	</view>
 </template>
 
@@ -21,19 +21,19 @@
 							uIcon: 'https://www.uviewui.com/common/logo.png',
 							color: 'blue',
 							name: '团队管理',
-							url: '/pages/toUrl/toUrl'
+							url: '/pages/team/index'
 						},
 						{
 							uIcon: 'https://www.uviewui.com/common/logo.png',
 							color: 'blue',
 							name: '无URL',
-							exec : 'add'
+							url: '/pages/team/index'
 						},
 						{
 							uIcon: 'https://www.uviewui.com/common/logo.png',
 							color: 'blue',
 							name: '无Url',
-							exec: 'invite'
+							url: '/pages/team/index'
 						}
 					]
 				},
