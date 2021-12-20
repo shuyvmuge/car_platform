@@ -46,6 +46,12 @@
 			}
 		},
 		{
+			"path": "pages/pickup/brand",
+			"style": {
+				"navigationBarTitleText": "选择品牌"
+			}
+		},
+		{
 			"path": "pages/pickup/firstsee",
 			"style": {
 				"navigationBarTitleText": "初检"

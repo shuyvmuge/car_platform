@@ -59,6 +59,7 @@
 	export default{
 		data(){
 			return {
+				form:{},
 				uList:[{
 					title:'店长',
 					itemlist:[
@@ -126,6 +127,16 @@
 				})
 			}
 		},
+		onShow(){
+		   var that = this;
+		   var pages = getCurrentPages();
+		   console.log('1111111')//为传过来的值
+		   console.log(pages)//为传过来的值vm.form
+		   console.log('22222222')//为传过来的值
+		   console.log('33333333')//为传过来的值
+		   console.log(pages[pages.length - 1].$vm.form.name)//为传过来的值vm.form
+		   console.log('444444444')//为传过来的值
+	   },
 		onLoad(options){
 			console.log(options)
 			uni.setNavigationBarTitle({

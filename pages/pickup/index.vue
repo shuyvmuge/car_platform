@@ -50,9 +50,11 @@
 						labelWidth="80"
 						prop="form.brand"
 						borderBottom="true"
+						@click="selectBrand"
 				>
 					<u-input
 						v-model="form.brand"
+						disabled
 						disabledColor="#ffffff"
 						placeholder="请输入品牌"
 						border="none"
@@ -188,6 +190,14 @@ export default {
 			}]
 		}
 	},
+	onShow(){
+		var that = this;
+		var pages = getCurrentPages();
+
+		console.log('33333333')
+		console.log(pages[pages.length - 1].$vm.form.brand)//为传过来的值vm.form
+		console.log('444444444')
+	},
 	methods: {
 		submit() {
 			if( this.form.nonePlateNo == false && !this.form.plateNo) return uni.$u.toast('请输入正确的车牌号');
@@ -199,6 +209,11 @@ export default {
 		},
 		cardchange(){
 			console.log('noplateNo')
+		},
+		selectBrand(){
+			uni.navigateTo({
+				url:'/pages/pickup/brand'
+			})
 		},
 		setPlate(plate) {
 			if (plate.length >= 7) this.form.plateNo = plate;
