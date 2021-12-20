@@ -60,10 +60,14 @@
 						plain
 						shape="circle"
 						:customStyle="customStyles"
+						@click="show = true"
 					></u-button>
 				</view>
 			</car-card>
 		</car-group>
+		<view>
+			<u-action-sheet cancelText="取消" :actions="moreList.chooses" @select="selectClick" @close="show = false" :title="moreList.title" :show="show"></u-action-sheet>
+		</view>
 		<car-group title="客户运营" mode="card">
 			<customer-operations :list="cO_list"></customer-operations>
 		</car-group>
@@ -76,9 +80,22 @@
 	export default{
 		data(){
 			return {
+				show: false,
 				src: 'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png',
 				customStyles:{
 					width:'auto',height:'auto',padding:'16rpx','font-size':'0.8em',color:'#3a3a3a'
+				},
+				moreList:{
+					title:'更多操作',
+					chooses: [
+						{
+							name:'选项一',
+							url:'/pages/pickup/dispatch'
+						},
+						{
+							name: '选项二'
+						}
+					],
 				},
 				cO_list: [
 					{
@@ -148,6 +165,14 @@
 						today:2
 					}
 				],
+			}
+		},
+		methods:{
+			selectClick(e){
+				console.log(e)
+				uni.navigateTo({
+					url:e.url
+				})
 			}
 		},
 		onLoad() {

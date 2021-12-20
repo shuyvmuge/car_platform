@@ -16,7 +16,6 @@
             "autoclose" : true,
             "delay" : 0
         },
-		"nvueStyleCompiler" : "uni-app",
         /* 模块配置 */
         "modules" : {},
         /* 应用发布信息 */
@@ -47,22 +46,7 @@
                 "ad" : {}
             }
         },
-        "nativePlugins" : {
-            "liyahong-TXOCR" : {
-                "__plugin_info__" : {
-                    "name" : "【Android+IOS】腾讯OCR文字识别、身份证、银行卡、车牌号、驾驶证识别 - [试用版，仅用于自定义调试基座]",
-                    "description" : "腾讯OCR，身份证正反（含头像裁剪，实名认证必备）、银行卡、车牌识别、车辆VIN识别、驾驶证、行驶证、名片识别，支持自定义各种配置",
-                    "platforms" : "Android,iOS",
-                    "url" : "https://ext.dcloud.net.cn/plugin?id=4243",
-                    "android_package_name" : "",
-                    "ios_bundle_id" : "",
-                    "isCloud" : true,
-                    "bought" : 0,
-                    "pid" : "4243",
-                    "parameters" : {}
-                }
-            }
-        }
+        "nativePlugins" : {}
     },
     /* 快应用特有相关 */
     "quickapp" : {},

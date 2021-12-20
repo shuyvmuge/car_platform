@@ -58,6 +58,12 @@
 			}
 		},
 		{
+			"path": "pages/pickup/dispatch",
+			"style": {
+				"navigationBarTitleText": "dispatch"
+			}
+		},
+		{
 			"path": "pages/order/index",
 			"style": {
 				"navigationBarTitleText": "工单"
