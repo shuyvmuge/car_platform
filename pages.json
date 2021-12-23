@@ -28,6 +28,12 @@
 			}
 		},
 		{
+			"path": "pages/team/editauth",
+			"style": {
+				"navigationBarTitleText": "权限设置"
+			}
+		},
+		{
 			"path": "pages/index/customdata",
 			"style": {
 				"navigationBarTitleText": "客户运营"
