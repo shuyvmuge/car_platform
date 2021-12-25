@@ -1,25 +1,22 @@
 <template>
 	<view class="car_form">
-		<u-form :model="userInfo" ref="uForm" labelPosition="left">
+		<u-form :model="authes" ref="uForm" labelPosition="left">
 			<uni-card :border="false">
 				<u-form-item
-						v-for="(b,bi) in userInfo.base" :key="bi"
 						class="u-form-item"
-						:label="b.title"
+						label="职位名称"
 						labelWidth="80" 
-						:prop="b.name"
 						borderBottom="true"
 				>
 					<u-input
-						v-model="b.value"
-						:placeholder="b.placeholder"
-						:border="b.border"
-						:type="b.type"
+						v-model="item.value"
+						placeholder="请输入职位名称"
+						type="text"
 					></u-input>
 				</u-form-item>
 			</uni-card>
 			
-			<view v-for="(item,index) in userInfo.authes" :key="index">
+			<view v-for="(item,index) in authes" :key="index">
 				<uni-card v-if="item.level == 1" :title="item.title">
 					<u-form-item class="u-form-item" labelWidth="80" v-for="(a,i) in item.auth" :key="i" :label="a.title">
 						<u-switch 
@@ -52,31 +49,7 @@
 export default {
 	data() {
 		return {
-			form: {
-				username:''
-			},
-			userInfo:{
-				base:[
-					{
-						title:'姓名',
-						type:'text',
-						name:'username',
-						border:'none',
-						value:'张三',
-						placeholder:'请输入姓名',
-						
-					},
-					{
-						title:'手机',
-						type:'number',
-						name:'tel',
-						border:'none',
-						value:'18898875041',
-						placeholder:'请输入姓名',
-						
-					}
-				],
-				authes:[
+			authes:[
 					{	
 						id:1,
 						title:'特殊权限',
@@ -194,7 +167,6 @@ export default {
 						]
 					}
 				]
-			}
 		}
 	},
 	methods: {

@@ -22,6 +22,12 @@
 			}
 		},
 		{
+			"path": "pages/team/position",
+			"style": {
+				"navigationBarTitleText": "修改员工"
+			}
+		},
+		{
 			"path": "pages/team/edit",
 			"style": {
 				"navigationBarTitleText": "修改员工"
