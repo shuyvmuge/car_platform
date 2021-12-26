@@ -34,36 +34,14 @@
 					</view>
 				</template>
 			</view>
-			<!-- <view class="ad">
-				<view class="ad_btn">
-					<text class="title">教资面试课上线</text>
-					<text class="sub_title">老用户现实立减100元</text>
-				</view>
-				<image src="/static/tag.png" class="bg"></image>
-			</view> -->
 		</view>
-		<!-- <scroll-view scroll-x="true" class="slider">
-			<template v-for="(it, i) in records">
-				<view class="item" :key="'slider_item_'+i" :style="{background: it.bg, marginRight: i === records.length - 1 ? '15px' : '0px'}">
-					<view class="item_content">
-						<view class="title">
-							<text class="first">{{it.title}}</text>
-							<text class="main">主讲：{{it.mainTeacher}}</text>
-							<text class="sub" :style="{color:it.subColor}">标题名称</text>
-						</view>
-						<image class="image" :src="it.icon"></image>
-						<text class="free">免\n费</text>
-					</view>
-				</view>
-			</template>
-		</scroll-view> -->
 		
-		<car-group title="客户运营" mode="card">
-			<customer-operations :list="cO_list"></customer-operations>
+		<car-group :title="CustomerData.title" mode="card">
+			<car-grid-board :list="CustomerData.itemList"></car-grid-board>
 		</car-group>
 	
-		<car-group title="经营看板" mode="card">
-			<business-kanban :list="bK_list"></business-kanban>
+		<car-group :title="BusinessData.title" mode="card">
+			<car-grid-board :list="BusinessData.itemList"></car-grid-board>
 		</car-group>
 	</view>
 </template>
@@ -73,132 +51,170 @@
 		data() {
 			return {
 				text1: 'uView UI众多组件覆盖开发过程的各个需求，组件功能丰富，多端兼容。让您快速集成，开箱即用',
-				cO_list: [
-					{
-						id:1,
-						name:'保养到期',
-						num:9,
-						today:2
-					},
-					{
-						id:2,
-						name:'保险到期',
-						num:2,
-						today:0
-					},
-					{
-						id:3,
-						name:'回访',
-						num:19,
-						today:2
-					},
-					{
-						id:4,
-						name:'预约',
-						num:19,
-						today:2
-					},
-					{
-						id:5,
-						name:'流失预警',
-						num:19,
-						today:2
-					},
-					{
-						id:6,
-						name:'流失预警',
-						num:19,
-						today:2
-					},
-					{
-						id:7,
-						name:'流失预警',
-						num:19,
-						today:2
-					},
-					{
-						id:8,
-						name:'流失预警',
-						num:19,
-						today:2
-					},
-					{
-						id:9,
-						name:'流失预警',
-						num:19,
-						today:2
-					},
-					{
-						id:10,
-						name:'流失预警',
-						num:19,
-						today:2
-					},
-					{
-						id:11,
-						name:'流失预警',
-						num:19,
-						today:2
-					}
-				],
-				bK_list: [
-					{
-						id:1,
-						name:'保养到期',
-						num:9
-					},
-					{
-						id:2,
-						name:'保险到期',
-						num:2
-					},
-					{
-						id:3,
-						name:'回访',
-						num:19
-					},
-					{
-						id:4,
-						name:'预约',
-						num:19
-					},
-					{
-						id:5,
-						name:'流失预警',
-						num:19
-					},
-					{
-						id:6,
-						name:'流失预警',
-						num:19
-					},
-					{
-						id:7,
-						name:'流失预警',
-						num:19
-					},
-					{
-						id:8,
-						name:'流失预警',
-						num:19
-					},
-					{
-						id:9,
-						name:'流失预警',
-						num:19,
-						today:2
-					},
-					{
-						id:10,
-						name:'流失预警',
-						num:19
-					},
-					{
-						id:11,
-						name:'流失预警',
-						num:19
-					}
-				],
+				CustomerData: {
+					title:'客户运营',
+					itemList:[
+						{
+							id:1,
+							title:'保养到期',
+							num:9,
+							extra:{
+								text:'今日+',
+								num:6
+							}
+						},
+						{
+							id:2,
+							title:'保险到期',
+							num:2,
+							extra:{
+								text:'今日+',
+								num:6
+							}
+						},
+						{
+							id:3,
+							title:'回访',
+							num:19,
+							extra:{
+								text:'今日+',
+								num:6
+							}
+						},
+						{
+							id:4,
+							title:'预约',
+							num:19,
+							extra:{
+								text:'今日+',
+								num:6
+							}
+						},
+						{
+							id:5,
+							title:'流失预警',
+							num:19,
+							extra:{
+								text:'今日+',
+								num:6
+							}
+						},
+						{
+							id:6,
+							title:'流失预警',
+							num:19,
+							extra:{
+								text:'今日+',
+								num:6
+							}
+						},
+						{
+							id:7,
+							title:'流失预警',
+							num:19,
+							extra:{
+								text:'今日+',
+								num:6
+							}
+						},
+						{
+							id:8,
+							title:'流失预警',
+							num:19,
+							extra:{
+								text:'今日+',
+								num:6
+							}
+						},
+						{
+							id:9,
+							title:'流失预警',
+							num:19,
+							extra:{
+								text:'今日+',
+								num:6
+							}
+						},
+						{
+							id:10,
+							title:'流失预警',
+							num:19,
+							extra:{
+								text:'今日+',
+								num:6
+							}
+						},
+						{
+							id:11,
+							title:'流失预警',
+							num:19,
+							extra:{
+								text:'今日+',
+								num:6
+							}
+						}
+					]
+				},
+				BusinessData:{
+					title:'客户运营',
+					itemList:[
+						{
+							id:1,
+							title:'机修',
+							num:9
+						},
+						{
+							id:2,
+							title:'美容',
+							num:2
+						},
+						{
+							id:3,
+							title:'回访',
+							num:19
+						},
+						{
+							id:4,
+							title:'预约',
+							num:19
+						},
+						{
+							id:5,
+							title:'洗车',
+							num:19
+						},
+						{
+							id:6,
+							title:'微信订单',
+							num:19
+						},
+						{
+							id:7,
+							title:'开卡',
+							num:19
+						},
+						{
+							id:8,
+							title:'流失预警',
+							num:190002
+						},
+						{
+							id:9,
+							title:'流失预警',
+							num:19,
+						},
+						{
+							id:10,
+							title:'流失预警',
+							num:19
+						},
+						{
+							id:11,
+							title:'流失预警',
+							num:19
+						}
+					]
+				},
 				menus: [{
 						bg: 'linear-gradient(0deg,rgba(9,216,162,1),rgba(90,242,217,1))',
 						icon: '/static/imgs/graduation.png',

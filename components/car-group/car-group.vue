@@ -33,7 +33,7 @@
 			},
 			top: {
 				type: [Number, String],
-				default: 10
+				default: 0
 			},
 			mode: {
 				type: String,
@@ -66,7 +66,7 @@
 <style lang="scss" scoped>
 	.car-group {
 		background: #fff;
-		margin-top: 10px;
+		margin-top: 0;
 		// border: 1px red solid;
 	}
 	.group-margin {
@@ -80,7 +80,7 @@
 		float: left;
 		height: 40px;
 		width: 5px;
-		background-color: #eee;
+		background-color: #f7f7f7;
 		.group_icon{
 			background-color: #208eff;
 			width: 100%;
@@ -96,7 +96,7 @@
 		align-items: center;
 		padding-left: 15px;
 		height: 40px;
-		background-color: #eee;
+		background-color: #f7f7f7;
 		font-weight: normal;
 		color: #666;
 	}
@@ -122,7 +122,7 @@
 	}
 
 	.car-group--card {
-		margin: 10px;
+		margin: 0 10px;
 		border-radius: 5px;
 		overflow: hidden;
 		box-shadow: 0 0 5px 1px rgba($color: #000000, $alpha: 0.08);
