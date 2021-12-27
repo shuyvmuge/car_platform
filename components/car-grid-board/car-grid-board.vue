@@ -91,6 +91,9 @@
 			align-items: center;
 			padding: 16rpx 0;
 			margin: 10rpx 0 20rpx 0;
+			&:active{
+				opacity: .5;
+			}
 		}
 		.car_item{
 			width: 25%;
@@ -101,13 +104,16 @@
 			padding: 16rpx 0;
 			margin: 10rpx 0 0 0;
 			border-bottom: 1px solid #eee;
+			&:active{
+				opacity: .5;
+			}
 			.item_title{
 				font-size: 14px;
 				color: #333333;
 			}
 			.item_num{
 				font-size: 20px;
-				color: #208eff;
+				color: #ff3a42;
 				padding: 10rpx 0;
 			}
 			.item_button{
@@ -118,9 +124,6 @@
 				color: #208eff;
 				text-align: center;
 				margin: 10rpx;
-				&:active{
-					background: rgba($color: #208eff, $alpha: .1);
-				}
 			}
 			.item_link{
 				display: flex;
@@ -131,7 +134,7 @@
 				.item_link_text{
 					font-size: .8em;
 					margin: 10rpx;
-					color: #208eff;
+					color: #ff3a42;
 				}
 				.item_link_note{
 					font-size: 14px;

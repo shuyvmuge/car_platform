@@ -1,6 +1,6 @@
 <template>
 	<view class="car-container flex-center" @tap="clickHandler">
-	   <view class="btn flex-center" hover-class="btn--hover-class">
+	   <view class="btn flex-center">
 	     {{title}}
 	   </view>
 	</view>
@@ -36,8 +36,8 @@
 	    color: white;
 	    font-size: 1.1em;
 	    height: 81%;
-		&--hover-class{
-			opacity:0.8;
+		&:active{
+			opacity: .8;
 		}
 	  }
 	}

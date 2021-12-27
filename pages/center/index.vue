@@ -10,15 +10,14 @@
           <!-- <view class="userImage">
             <open-data type="userAvatarUrl"></open-data>
           </view> -->
-		  <image src="/static/imgs/avatar.jpg" mode="aspectFit"></image>
+		  <image :src="store.logo" mode="aspectFit"></image>
         </view>
         <view class="bottom">
-          <view class="left">
+          <view class="left car-hover">
             <view class="user-text">
-              <!-- <open-data type="userNickName"></open-data> -->
-			  <text>中恒集团</text>
+			  <text>{{store.name}}</text>
             </view>
-            <view class="user-phone"> 171****4133 </view>
+            <view class="user-phone"> {{store.phone}} </view>
           </view>
           <view class="right flex-center">
             <u-icon class="icon" name="arrow-right"></u-icon>
@@ -28,45 +27,24 @@
     </view>
 	
     <view class="list-card">
-      <view class="card">
-        <view class="item item-bottom-solid">
+      <view 
+		class="card car-hover" 
+		v-for="(item,index) in menus" 
+		:key="index"
+	>
+        <view class="item item-bottom-solid" @click="menuAction(item)">
           <view class="left flex-center">
-            <image src="/static/imgs/store.png" mode="aspectFit"></image>
+            <image :src="item.icon" mode="aspectFit"></image>
           </view>
           <view class="center">
-            <text>店铺设置</text>
+            <text>{{item.name}}</text>
           </view>
           <view class="right flex-center">
             <u-icon class="icon" name="arrow-right"></u-icon>
           </view>
         </view>
       </view>
-      <view class="card">
-        <view class="item item-bottom-solid">
-          <view class="left flex-center">
-            <image src="/static/imgs/contact.png" mode="aspectFit"></image>
-          </view>
-          <view class="center">
-            <text>联系客服</text>
-          </view>
-          <view class="right flex-center">
-            <u-icon class="icon" name="arrow-right"></u-icon>
-          </view>
-        </view>
-      </view>
-	  <view class="card">
-	    <view class="item item-bottom-solid">
-	      <view class="left flex-center">
-	        <image src="/static/imgs/xufei.png" mode="aspectFit"></image>
-	      </view>
-	      <view class="center">
-	        <text>服务续费</text>
-	      </view>
-	      <view class="right flex-center">
-	        <u-icon class="icon" name="arrow-right"></u-icon>
-	      </view>
-	    </view>
-	  </view>
+
     </view>
 	<car-btn title="退出登录"></car-btn>
   </view>
@@ -180,20 +158,35 @@
 //import {  } from "@/common/api/{$}.js";
 export default {
   data() {
-    return {};
+    return {
+		store:{
+			name:'华兰生物',
+			logo:'/static/imgs/avatar.jpg',
+			phone:'1238644335'
+		},
+		menus:[
+			{	id:1,
+				name:'店铺设置',
+				icon:'/static/imgs/store.png',
+				url:''
+			},
+			{	id:1,
+				name:'联系客服',
+				icon:'/static/imgs/contact.png',
+				url:''
+			},
+			{	id:1,
+				name:'服务续费',
+				icon:'/static/imgs/xufei.png',
+				url:''
+			}
+		]
+	};
   },
-  //监听页面初始化，其参数同 onLoad 参数，为上个页面传递的数据，参数类型为 Object（用于页面传参），触发时机早于 onLoad
-  onInit() {},
-  //监听页面加载，其参数为上个页面传递的数据，参数类型为 Object（用于页面传参）
-  onLoad() {},
-  //监听页面初次渲染完成。注意如果渲染速度快，会在页面进入动画完成前触发
-  onReady() {},
-  //监听页面显示。页面每次出现在屏幕上都触发，包括从下级页面点返回露出当前页面
-  beforeDestroy() {},
-  //页面滚动到底部的事件（不是scroll-view滚到底），常用于下拉下一页数据。
-  onReachBottom() {},
-  onShareAppMessage(res) {},
-  created() {},
-  methods: {},
+  methods: {
+	  menuAction(menu){
+		  console.log(menu)
+	  }
+  },
 };
 </script>

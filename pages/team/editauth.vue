@@ -1,8 +1,14 @@
 <template>
 	<view>
 		<car-card>
-			<u-form v-for="(item,index) in auth">
-				<u-form-item class="u-form-item" labelWidth="80" :key="index" :label="item.title">
+			<u-form>
+				<u-form-item 
+					v-for="(item,index) in auth"
+					:key="index"
+					:label="item.title"
+					class="u-form-item" 
+					labelWidth="80"
+				>
 					<u-switch 
 						slot="right" 
 						v-model="item.value" 

@@ -32,4 +32,9 @@
 		image {
 			box-sizing: border-box;
 		}
+		.car-hover{
+			:active{
+				opacity: .5;
+			}
+		}
 </style>

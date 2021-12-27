@@ -4,6 +4,9 @@
 			<view class="group_icon_con">
 				<view class="group_icon"></view>
 			</view>
+			<view class="car-group__right" v-if="setText">
+				<view class="car-group__right_set">{{setText}}</view>
+			</view>
 			<view v-if="title" class="car-group__title" :style="{'padding-left':border?'30px':'15px'}">
 				<text class="car-group__title-text">{{ title }}</text>
 			</view>
@@ -28,6 +31,10 @@
 		emits:['click'],
 		props: {
 			title: {
+				type: String,
+				default: ''
+			},
+			setText: {
 				type: String,
 				default: ''
 			},
@@ -78,13 +85,30 @@
 		justify-content: center;
 		align-items: center;
 		float: left;
-		height: 40px;
+		height: 80rpx;
 		width: 5px;
 		background-color: #f7f7f7;
 		.group_icon{
 			background-color: #208eff;
 			width: 100%;
 			height: 14px;
+		}
+	}
+	
+	.car-group__right{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		float: right;
+		height: 80rpx;
+		background-color: #f7f7f7;
+		.car-group__right_set{
+			padding: 10rpx 60rpx;
+			color: #208eff;
+			background: rgba($color: #208eff, $alpha: .1);
+			&:active{
+				opacity: .5;
+			}
 		}
 	}
 	
@@ -95,7 +119,7 @@
 		flex-direction: row;
 		align-items: center;
 		padding-left: 15px;
-		height: 40px;
+		height: 80rpx;
 		background-color: #f7f7f7;
 		font-weight: normal;
 		color: #666;

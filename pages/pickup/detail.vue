@@ -11,6 +11,7 @@
 				<view class="btn-detail-container">
 					<u-button
 						v-for="(item,index) in carAction"
+						:key="index"
 						:text="item.name"
 						:icon="item.icon"
 						:plain="true"

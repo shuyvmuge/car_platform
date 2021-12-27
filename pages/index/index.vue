@@ -1,6 +1,6 @@
 <template>
 	<view class="page_car">
-		<u-notice-bar :text="text1" mode="closable" bgColor="#208eff" color="#ffffff"></u-notice-bar>
+		<u-notice-bar :text="message" mode="closable" bgColor="#208eff" color="#ffffff"></u-notice-bar>
 		<view class="page_car_header">
 			<view class="header_content">
 				<view class="left">
@@ -15,21 +15,21 @@
 		</view>
 		<view class="page_content">
 			<view class="menu">
-				<template v-for="(it,i) in menus">
-					<view class="item" :key="'menu_'+i">
-						<view class="img_view" :style="{background: it.bg}">
-							<image :src="it.icon" class="image"></image>
+				<template v-for="(item,index) in menus">
+					<view class="item" :key="'menu_'+index">
+						<view  class="img_view" :style="{background: item.bg}">
+							<image :src="item.icon" class="image"></image>
 						</view>
-						<text class="txt">{{it.txt}}</text>
+						<text class="txt">{{item.txt}}</text>
 					</view>
 				</template>
 			</view>
 			<view class="s_menu">
-				<template v-for="(it,i) in second_menus">
-					<view class="item" :key="'s_menu_'+i">
-						<navigator :url="it.path" class="path">
-							<image :src="it.icon" class="image"></image>
-							<text class="txt">{{it.txt}}</text>
+				<template v-for="(item,index) in second_menus">
+					<view class="item" :key="'s_menu_'+index">
+						<navigator hover-class="path-hover" :url="item.path" class="path">
+							<image :src="item.icon" class="image"></image>
+							<text class="txt">{{item.txt}}</text>
 						</navigator>
 					</view>
 				</template>
@@ -40,7 +40,7 @@
 			<car-grid-board :list="CustomerData.itemList"></car-grid-board>
 		</car-group>
 	
-		<car-group :title="BusinessData.title" mode="card">
+		<car-group :title="BusinessData.title" :setText="BusinessData.setText" mode="card">
 			<car-grid-board :list="BusinessData.itemList"></car-grid-board>
 		</car-group>
 	</view>
@@ -50,7 +50,7 @@
 	export default {
 		data() {
 			return {
-				text1: 'uView UI众多组件覆盖开发过程的各个需求，组件功能丰富，多端兼容。让您快速集成，开箱即用',
+				message: '港股市场因圣诞假期，将于24-25日休市',
 				CustomerData: {
 					title:'客户运营',
 					itemList:[
@@ -156,7 +156,8 @@
 					]
 				},
 				BusinessData:{
-					title:'客户运营',
+					title:'经营看板',
+					setText:'今天',
 					itemList:[
 						{
 							id:1,
@@ -249,11 +250,6 @@
 						icon: '/static/imgs/textbook.png',
 						path:'',
 						txt: '我的业绩',
-					},
-					{
-						icon: '/static/imgs/book_ticket.png',
-						path:'',
-						txt: '出库领料'
 					},
 					{
 						icon: '/static/imgs/book_ticket.png',
@@ -440,7 +436,9 @@
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-
+				&:active{
+					opacity: .5;
+				}
 				.img_view {
 					width: 60px;
 					height: 60px;
@@ -468,24 +466,24 @@
 			flex-direction: row;
 			align-items: stretch;
 			justify-content: space-between;
-			margin-top: 60rpx;
-			margin-left: 10px;
-			margin-right: 10px;
+			margin: 60rpx 20rpx;
 			padding-left: 10px;
 			padding-right: 10px;
 
 			.item {
+				.path-hover{
+					opacity: .5;
+				}
 				.path {
 				    display: flex;
 				    flex-direction: column;
 				    justify-content: center;
 				    align-items: center;
-					
+					padding: 10rpx;
 					.image {
 						width: 35px;
 						height: 35px;
 					}
-					
 					.txt {
 						margin-top: 5px;
 						font-size: 14px;
@@ -495,116 +493,6 @@
 			}
 		}
 
-		.ad {
-			width: 100%;
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: center;
-
-			.bg {
-				position: absolute;
-				width: 120px;
-				height: 105px;
-				left: 0;
-			}
-
-			.ad_btn {
-				width: 100%;
-				height: 63px;
-				margin: 30px;
-				background: linear-gradient(0deg, rgba(253, 155, 28, 1), rgba(251, 197, 33, 1));
-				border-radius: 67px;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-
-				.title {
-					font-size: realSize(38px);
-					font-family: PingFang-SC-Heavy;
-					font-weight: 800;
-					color: rgba(255, 255, 255, 1);
-				}
-
-				.sub_title {
-					background: linear-gradient(0deg, rgba(255, 128, 37, 1), rgba(255, 153, 32, 1));
-					box-shadow: 0px 4px 5px 0px rgba(92, 53, 48, 0.3), 0px 1px 0px 0px rgba(228, 228, 228, 1);
-					border-radius: realSize(24px);
-					font-size: realSize(24px);
-					font-family: PingFang-SC-Heavy;
-					font-weight: 800;
-					font-style: italic;
-					color: rgba(255, 236, 177, 1);
-					line-height: realSize(26px);
-				}
-			}
-		}
 	}
 
-	.slider {
-		white-space: nowrap;
-		width: 100%;
-		background-color: white;
-
-		.item {
-			display: inline-block;
-			margin-left: 15px;
-			margin-top: 13px;
-			margin-bottom: 13px;
-			width: 60%;
-			height: 125px;
-			border-radius: 10px;
-
-			.item_content {
-				display: flex;
-				flex-direction: row;
-
-				.title {
-					width: 36%;
-					margin: 20px;
-					display: flex;
-					flex-direction: column;
-					
-					.first {
-						font-size: 16px;
-						color:rgba(46,65,69,1);
-					}
-					.main {
-						font-size: 13px;
-						color:rgba(79,103,101,1);
-						margin-top: 5px;
-					}
-					.sub {
-						width: 60px;
-						font-size: 10px;
-						margin-top: 20px;
-						background:rgba(255,255,255,0.4);
-						border-radius:5px;
-						display: flex;
-						align-items: center;
-						justify-content: center;
-					}
-				}
-
-				.image {
-					margin-top: 35px;
-					width: 80px;
-					height: 80px;
-				}
-
-				.free {
-					background: rgba(11, 147, 252, 1);
-					border-radius: 0px 0px 22px 22px;
-					width: 25px;
-					height: 50px;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					color: #FFFFFF;
-					font-size: 14px;
-				}
-			}
-		}
-	}
 </style>
