@@ -13,7 +13,7 @@
 		  <image :src="store.logo" mode="aspectFit"></image>
         </view>
         <view class="bottom">
-          <view class="left car-hover">
+          <view class="left">
             <view class="user-text">
 			  <text>{{store.name}}</text>
             </view>
@@ -96,6 +96,9 @@
 		width: 84%;
         height: 100%;
         position: relative;
+		:active{
+			opacity: .5;
+		}
         .user-text {
           width: 100%;
           font-size: 1.1em;
@@ -128,6 +131,9 @@
     .item {
       display: flex;
       padding: 20rpx;
+	  :active{
+	  	opacity: .5;
+	  }
       .left {
         width: 10%;
         image {

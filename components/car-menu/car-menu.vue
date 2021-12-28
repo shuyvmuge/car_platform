@@ -1,31 +1,33 @@
 <template>
 	<view>
-		<block v-for="(items,indexs) in list"  :key="indexs">
+		<block v-for="(items,i) in menus"  :key="i">
 		<car-group :title="items.title" mode="card">
-			<u-grid
-					:border="false"
-					:col="items.colNumber"
-			>
-				<u-grid-item
-						v-for="(item,index) in items.iconsList"
-						:key="index"
-						v-show="index > 6?kg:true"
+			<view class="menu-container">
+				<u-grid
+						:border="false"
+						:col="items.colNumber"
 				>
-					<view class="auth-item" @click="jumpPage(item)">
-						<u-icon size="40" labelSize="14"
-						:customStyle="{paddingTop:20+'rpx'}"
-								:name="item.uIcon"
-						></u-icon>
-						<text class="grid-text">{{item.name}}</text>
-					</view>
+					<u-grid-item
+							v-for="(item,j) in items.menuItems"
+							:key="j"
+							v-show="j > 6?kg:true"
+					>
+						<view class="auth-item" @click="jumpPage(item)">
+							<u-icon size="40" labelSize="14"
+							:customStyle="{paddingTop:20+'rpx'}"
+									:name="item.uIcon"
+							></u-icon>
+							<text class="grid-text">{{item.name}}</text>
+						</view>
+						
+					</u-grid-item>
 					
-				</u-grid-item>
-				
-				<u-grid-item  @click="kg = !kg" v-show="items.iconsList.length > 6">
-					<u-icon  v-if="kg == false" label="展开" labelPos="bottom" size="28" labelSize="14" name="/static/imgs/zk.png"></u-icon>
-					<u-icon  v-else label="收起" labelPos="bottom" size="28" labelSize="14" name="/static/imgs/sq.png"></u-icon>
-				</u-grid-item>
-			</u-grid>
+					<u-grid-item  @click="kg = !kg" v-show="items.menuItems.length > 6">
+						<u-icon  v-if="kg == false" label="展开" labelPos="bottom" size="28" labelSize="14" name="/static/imgs/zk.png"></u-icon>
+						<u-icon  v-else label="收起" labelPos="bottom" size="28" labelSize="14" name="/static/imgs/sq.png"></u-icon>
+					</u-grid-item>
+				</u-grid>
+			</view>
 		</car-group>
 		</block>
 	</view>
@@ -39,17 +41,16 @@
 	 * @event {Function()} gridExc 若对象没有Url属性，点击宫格时传出该宫格的值
 	 */
 	export default {
-		name: 'full-potential',
+		name: 'CarMenu',
 		props:{
-			list: {
+			menus: {
 				type : Array,
 				default: new Array
 			}
 		},
 		data(){
 			return{
-				kg:false,
-				tabber_list : this.list,		// 列表 , 由于参数不可改变值
+				kg:false
 			}
 		},
 		created:function(){
@@ -72,10 +73,14 @@
 	}
 </script>
 <style scoped>
+	.menu-container{
+		margin-bottom: 30rpx;
+	}
 	.auth-item{
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		margin: 10rpx auto;
 	}
 </style>

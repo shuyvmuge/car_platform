@@ -20,6 +20,7 @@
 			font-size: 28rpx;
 			color: #272e2d;
 			font-family: Helvetica Neue, Helvetica, sans-serif;
+			padding-bottom: 100rpx;
 		}
 		view,
 		scroll-view,
@@ -31,10 +32,5 @@
 		navigator,
 		image {
 			box-sizing: border-box;
-		}
-		.car-hover{
-			:active{
-				opacity: .5;
-			}
 		}
 </style>

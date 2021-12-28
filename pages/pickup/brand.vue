@@ -8,7 +8,7 @@
 				<!-- #ifndef APP-NVUE -->
 				<u-index-anchor :text="indexList[index]"></u-index-anchor>
 				<!-- #endif -->
-				<view class="list-cell" v-for="(cell, index) in item">
+				<view class="list-cell" v-for="(cell, index) in item" :key="index">
 					<view @click="itemClick(cell)">{{cell}}</view>
 				</view>
 			</u-index-item>

@@ -1,5 +1,5 @@
 <template>
-	<view class="long-categories">
+	<view class="car-left-tab">
 		<view class="left">
 			<scroll-view 
 				:scroll-with-animation="true"
@@ -24,7 +24,6 @@
 				:style="`height: ${ height }rpx`" 
 				scroll-with-animation
 				:scroll-into-view="cIndex"
-				@scrolltolower="scrollToBottom"
 			>
 				<view class="right-container" v-for="(item,index) in list" :key="index">
 					<uni-list
@@ -51,7 +50,7 @@
 
 <script>
 	export default {
-		name: "category",
+		name: "CarLeftTab",
 		data() {
 			return {
 				height: 0,
@@ -123,11 +122,11 @@
 					this.topList =  nodes.map(item => item.top)
 				})
 			},
-			scrollToBottom () {
+			/* scrollToBottom () {
 				setTimeout(()=>{
-					this.active = this.list.length - 1
+					this.active = this.active + 1
 				}, 50)
-			},
+			}, */
 			reload () {
 				this.getNodesInfo()
 			}
@@ -135,7 +134,7 @@
 		mounted() {
 			uni.getSystemInfo({
 				success: res => {
-					this.height = (res.screenHeight - 144)*2;
+					this.height = (res.screenHeight - 112)*2;
 				}
 			})
 			this.getNodesInfo()
@@ -147,7 +146,10 @@
 </script>
 
 <style lang="less" scoped>
-	.long-categories {
+	page{
+		padding-bottom: 0;
+	}
+	.car-left-tab {
 		display: flex;
 		width: 100%;
 		// flex-wrap: wrap;

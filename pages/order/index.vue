@@ -5,13 +5,13 @@
 			shape="square"
 		></u-search>
 		<view class="content">
-				<long-categories
-					ref="long"
-					:list="list"
-					:maxSelected="max"
-					@change="change"
-				>
-				</long-categories>
+			<car-left-tab
+				ref="long"
+				:list="list"
+				:maxSelected="max"
+				@change="change"
+			>
+			</car-left-tab>
 		</view>
 	</view>
 </template>
@@ -46,7 +46,120 @@
 								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
 								checked: false,
 								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
+							},{
+								id:3,
+								name:'粤EP9875',
+								date:'2021-12-18 00:07:56',
+								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
+								checked: false,
+								disabled: false
 							}
+							
 						],
 						selectedIds:{}
 					},{
