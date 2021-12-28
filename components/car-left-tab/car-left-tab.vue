@@ -4,7 +4,7 @@
 			<scroll-view 
 				:scroll-with-animation="true"
 				scroll-y 
-				:style="`height:${ height }rpx`"
+				:style="`height:${ height }px`"
 			>
 				<view 
 					class="left-item" 
@@ -21,7 +21,7 @@
 		<view class="right">
 			<scroll-view scroll-y
 				@scroll="scroll" 
-				:style="`height: ${ height }rpx`" 
+				:style="`height: ${ height }px`" 
 				scroll-with-animation
 				:scroll-into-view="cIndex"
 			>
@@ -134,7 +134,7 @@
 		mounted() {
 			uni.getSystemInfo({
 				success: res => {
-					this.height = (res.screenHeight - 112)*2;
+					this.height = res.windowHeight - 24;
 				}
 			})
 			this.getNodesInfo()
@@ -156,7 +156,7 @@
 	}
 
 	.left {
-		width: 25%;
+		width: 20%;
 		background: #f8f8f8;
 	}
 
