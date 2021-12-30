@@ -1,9 +1,11 @@
 <template>
 	<view>
-		<u-search
-			:show-action="false"
-			shape="square"
-		></u-search>
+		<view class="search">
+			<u-search
+				:show-action="false"
+				shape="square"
+			></u-search>
+		</view>
 		<view class="content">
 			<car-left-tab
 				ref="long"
@@ -153,7 +155,7 @@
 								disabled: false
 							},{
 								id:3,
-								name:'粤EP9875',
+								name:'粤EP9875888',
 								date:'2021-12-18 00:07:56',
 								img:'http://cx1.ycqpmall.com/static/xyzs/brand/002.jpg',
 								checked: false,
@@ -240,7 +242,13 @@
 </script>
 
 <style>
+	.search{
+		width: 100%;
+		position: fixed;
+		z-index: 999;
+	}
 	.content {
+		padding-top: 64rpx;
 		width: 100%;
 		display: flex;
 		flex-direction: column;

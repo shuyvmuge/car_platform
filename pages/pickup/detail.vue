@@ -5,20 +5,19 @@
 				title="苏B99999" 
 				sub-title="王总 18898875042" 
 				:thumbnail="src" 
-				padding="30rpx 0 100rpx 10rpx"
+				padding="30rpx 0 30rpx 20rpx"
 				:is-full="true"
 				>
 				<view class="btn-detail-container">
-					<u-button
+					<car-button
 						v-for="(item,index) in carAction"
-						:key="index"
 						:text="item.name"
+						:key="index"
 						:icon="item.icon"
-						:plain="true"
-						shape="circle"
-						:customStyle="customBtnStyle"
+						color="#000000"
 						@click="carActionClicked(item.actionName)"
-					></u-button>
+					>
+					</car-button>
 				</view>
 			</uni-card>
 		</view>
@@ -33,16 +32,14 @@
 			:is-full="true"
 			>
 				<view class="btn-order-container">
-					<u-button
+					<car-button
 						v-for="(item,index) in WOActions.itemList"
-						:key="index"
-						class="action"
 						:text="item.name"
-						plain
-						shape="circle"
-						:customStyle="customBtnStyle"
+						:key="index"
+						color="#000000"
 						@click="actionClicked(item.actionName)"
-					></u-button>
+					>
+					</car-button>
 				</view>
 			</car-card>
 			<u-action-sheet
@@ -79,7 +76,6 @@
 				</uni-list-item>
 			</uni-list>
 		</car-group>
-	
 	</view>
 </template>
 
@@ -89,14 +85,6 @@
 			return {
 				moreActionShow: false,
 				src: 'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png',
-				customBtnStyle:{
-					width:'auto',
-					height:'auto',
-					padding:'10rpx 20rpx',
-					fontSize:'0.8em',
-					margin:'auto 15rpx',
-					color:'#3a3a3a'
-				},
 				carAction:[
 					{
 						id:1,
@@ -301,6 +289,7 @@
 			flex-direction: row;
 			justify-content: flex-start;
 			align-items: flex-start;
+			flex-wrap: wrap;
 		}
 	}
 	.btn-order-container{
