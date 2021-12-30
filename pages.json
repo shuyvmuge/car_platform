@@ -104,6 +104,12 @@
 			"style": {
 				"navigationBarTitleText": "申请"
 			}
+		},
+		{
+			"path": "pages/profile/index",
+			"style": {
+				"navigationBarTitleText": "客户档案"
+			}
 		}
 	],
 	"globalStyle": {

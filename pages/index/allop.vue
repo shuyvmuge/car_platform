@@ -25,8 +25,8 @@
 							{
 								uIcon: 'https://www.uviewui.com/common/logo.png',
 								color: 'blue',
-								name: '无URL',
-								url: '/pages/team/index'
+								name: '客户档案',
+								url: '/pages/profile/index'
 							},
 							{
 								uIcon: 'https://www.uviewui.com/common/logo.png',
