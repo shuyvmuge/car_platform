@@ -1,0 +1,245 @@
+<template>
+	<view class="profile-list">
+		<view class="condition">
+			<car-filter-button :filters="filters" width="20%"></car-filter-button>
+		</view>
+		<view class="content">
+			<uni-list :border="false">
+				 <uni-list-item 
+					:border="false"
+					:thumb="item.logo"
+					thumbSize="lg"
+					v-for="(item,index) in list"
+					:note="item.create_time"
+					:key="index"
+					:title="item.plate" 
+					:showArrow="true"
+					:rightText="item.username"
+				>
+				</uni-list-item>
+			</uni-list>
+			<u-loadmore :status="status"/>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default{
+		onReachBottom() {
+			if(this.page >= 3) return ;
+			this.status = 'loading';
+			this.page = ++ this.page;
+			setTimeout(() => {
+				for (let i=0;i<15;i++) {
+					this.list.push({
+						id:1,
+						plate:'粤Y458645',
+						username:'李四',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					})
+				}
+			}, 2000)
+		},
+		data(){
+			return{
+				status: 'loadmore',
+				page: 0,
+				filters:[
+					{
+						title:'类型',
+					},
+					{
+						title:'月份',
+					},
+					{
+						title:'操作人',
+					}
+				],
+				list:[
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					},
+					{
+						id:1,
+						plate:'粤Y458645',
+						username:'张三',
+						create_time:'2022-11-15',
+						logo:'https://juhe.oss-cn-hangzhou.aliyuncs.com/api_image/538/brand/2.png'
+					}
+				]
+			}
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	.content{
+		padding-top: 160rpx;
+	}
+</style>

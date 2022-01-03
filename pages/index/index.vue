@@ -258,38 +258,10 @@
 					},
 					{
 						icon: '/static/imgs/more.png',
-						path:'/pages/index/allop',
+						path:'/pages/menus/index',
 						txt: '全部功能'
 					}
 				],
-				records: [{
-						bg: 'linear-gradient(-30deg,rgba(171,218,255,1),rgba(215,239,255,1))',
-						title: '教师考情分析',
-						mainTeacher: '小A',
-						subTitle: '标题名称',
-						subColor: '#15639F',
-						icon: '/static/test2.png',
-						isFree: true
-					},
-					{
-						bg: 'linear-gradient(-30deg,rgba(192,253,227,1),rgba(224,252,240,1))',
-						title: '查看详情',
-						mainTeacher: '小B',
-						subTitle: '标题名称',
-						subColor: '#07B77B',
-						icon: '/static/test.png',
-						isFree: false
-					},
-					{
-						bg: 'linear-gradient(-30deg,rgba(171,218,255,1),rgba(215,239,255,1))',
-						title: '教师考情分析',
-						mainTeacher: '小A',
-						subTitle: '标题名称',
-						subColor: '#15639F',
-						icon: '/static/test2.png',
-						isFree: true
-					}
-				]
 			}
 		},
 		onLoad() {

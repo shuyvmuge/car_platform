@@ -21,7 +21,13 @@
 					</view>
 				</view>
 				<view class="uni-card__header-extra" @click="onClick('extra')">
-					<text class="uni-card__header-extra-text">{{ extra }}</text>
+					<text v-if="extra" class="uni-card__header-extra-text">{{ extra }}</text>
+					<u-icon
+						v-if="extraIcon"
+						labelPos="bottom" 
+						size="22" 
+						:name="extraIcon"
+					></u-icon>
 				</view>
 			</view>
 		</slot>
@@ -107,6 +113,10 @@
 			border: {
 				type: Boolean,
 				default: true
+			},
+			extraIcon:{
+				type: String,
+				default: ''
 			}
 		},
 		methods: {
@@ -148,6 +158,9 @@
 			flex-direction: row;
 			overflow: hidden;
 			border-radius: 4px;
+			&:active{
+				opacity: .5;
+			}
 			.uni-card__cover-image {
 				flex: 1;
 				// width: 100%;
@@ -173,6 +186,9 @@
 				flex-direction: row;
 				align-items: center;
 				overflow: hidden;
+				&:active{
+					opacity: .5;
+				}
 			}
 
 			.uni-card__header-avatar {
@@ -213,7 +229,9 @@
 
 			.uni-card__header-extra {
 				line-height: 12px;
-
+				&:active{
+					opacity: .5;
+				}
 				.uni-card__header-extra-text {
 					font-size: 12px;
 					color: $uni-cart-subtitle-color;

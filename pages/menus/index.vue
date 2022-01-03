@@ -26,7 +26,7 @@
 								uIcon: 'https://www.uviewui.com/common/logo.png',
 								color: 'blue',
 								name: '客户档案',
-								url: '/pages/profile/index'
+								url: '/pages/menus/profile/index'
 							},
 							{
 								uIcon: 'https://www.uviewui.com/common/logo.png',

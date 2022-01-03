@@ -10,31 +10,31 @@
 			}
 		},
 		{
-			"path": "pages/index/allop",
+			"path": "pages/menus/index",
 			"style": {
 				"navigationBarTitleText": "全部功能"
 			}
 		},
 		{
-			"path": "pages/team/index",
+			"path": "pages/menus/team/index",
 			"style": {
-				"navigationBarTitleText": " "
+				"navigationBarTitleText": "团队管理"
 			}
 		},
 		{
-			"path": "pages/team/position",
-			"style": {
-				"navigationBarTitleText": "修改员工"
-			}
-		},
-		{
-			"path": "pages/team/edit",
+			"path": "pages/menus/team/position",
 			"style": {
 				"navigationBarTitleText": "修改员工"
 			}
 		},
 		{
-			"path": "pages/team/editauth",
+			"path": "pages/menus/team/edit",
+			"style": {
+				"navigationBarTitleText": "修改员工"
+			}
+		},
+		{
+			"path": "pages/menus/team/editauth",
 			"style": {
 				"navigationBarTitleText": "权限设置"
 			}
@@ -94,21 +94,27 @@
 			}
 		},
 		{
-			"path": "pages/login/login",
+			"path": "pages/center/login",
 			"style": {
 				"navigationBarTitleText": "登录"
 			}
 		},
 		{
-			"path": "pages/register/register",
+			"path": "pages/center/register",
 			"style": {
 				"navigationBarTitleText": "申请"
 			}
 		},
 		{
-			"path": "pages/profile/index",
+			"path": "pages/menus/profile/index",
 			"style": {
 				"navigationBarTitleText": "客户档案"
+			}
+		},
+		{
+			"path": "pages/menus/profile/list",
+			"style": {
+				"navigationBarTitleText": "客户列表"
 			}
 		}
 	],
