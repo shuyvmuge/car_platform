@@ -69,7 +69,7 @@
 				</view>
 				<view class="so-plate-btn-group">
 					<view>
-						<button class="so-plate-btn so-plate-btn--cancel" @tap="$emit('close')">取消</button>
+						<button class="so-plate-btn so-plate-btn--cancel" @tap="$emit('close')">关闭</button>
 					</view>
 					<view>
 						<button class="so-plate-btn so-plate-btn--delete" @tap="deleteKey">删除</button>
@@ -238,7 +238,6 @@ export default {
 		}
 	},
 	mounted() {
-		console.log(this.plate);
 		const plateKey = this.plate.split('')
 		if(plateKey.length===7){
 			this.type=1
@@ -250,11 +249,11 @@ export default {
 			this.currentInputIndex = plateKey.length-1
 		}
 
-		setTimeout(() => {  //在动画结束之后才开始获取
+		/* setTimeout(() => {  //在动画结束之后才开始获取
 			this.$nextTick(()=>{
 				this.changeKeyboardHeight()
 			})
-		}, 500);
+		}, 500); */
 	}
 };
 </script>

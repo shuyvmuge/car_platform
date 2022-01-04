@@ -3,7 +3,7 @@
 		<view 
 			class="car-button-container"
 			:style="{background:bg}"
-			@click="click(item)"
+			@click="click()"
 		>
 			<u-icon v-if="icon" :name="icon" :color="color"></u-icon>
 			<text class="car-button" :style="{color:color}">{{text}}</text>
@@ -33,8 +33,8 @@
 			}
 		},
 		methods:{
-			click(e) {
-				this.$emit('click', e)
+			click() {
+				this.$emit('click')
 			}
 		}
 	}

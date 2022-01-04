@@ -13,8 +13,8 @@
 							v-show="j > 6?kg:true"
 					>
 						<view class="auth-item" @click="jumpPage(item)">
-							<u-icon size="40" labelSize="14"
-							:customStyle="{paddingTop:20+'rpx'}"
+							<u-icon size="50" labelSize="14"
+							:customStyle="{padding:20+'rpx'}"
 									:name="item.uIcon"
 							></u-icon>
 							<text class="grid-text">{{item.name}}</text>
@@ -23,8 +23,10 @@
 					</u-grid-item>
 					
 					<u-grid-item  @click="kg = !kg" v-show="items.menuItems.length > 6">
-						<u-icon  v-if="kg == false" label="展开" labelPos="bottom" size="28" labelSize="14" name="/static/imgs/zk.png"></u-icon>
-						<u-icon  v-else label="收起" labelPos="bottom" size="28" labelSize="14" name="/static/imgs/sq.png"></u-icon>
+						<view class="auth-item">
+							<u-icon  v-if="kg == false" label="展开" labelPos="bottom" size="28" labelSize="14" name="/static/imgs/zk.png"></u-icon>
+							<u-icon  v-else label="收起" labelPos="bottom" size="28" labelSize="14" name="/static/imgs/sq.png"></u-icon>
+						</view>
 					</u-grid-item>
 				</u-grid>
 			</view>
@@ -81,6 +83,6 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin: 10rpx auto;
+		margin: 10rpx;
 	}
 </style>

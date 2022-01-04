@@ -116,6 +116,12 @@
 			"style": {
 				"navigationBarTitleText": "客户列表"
 			}
+		},
+		{
+			"path": "pages/menus/profile/add",
+			"style": {
+				"navigationBarTitleText": "新增客户"
+			}
 		}
 	],
 	"globalStyle": {

@@ -1,7 +1,15 @@
 <template>
 	<view class="profile-list">
 		<view class="condition">
-			<car-filter-button :filters="filters" width="20%"></car-filter-button>
+			<car-filter-button :filters="filters" width="20%" @click="filterAction"></car-filter-button>
+			<u-action-sheet
+				cancelText="取消" 
+				:actions="WOActions.itemList[0].items"
+				 @select="selectMore" 
+				 @close="moreActionShow = false" 
+				 :title="WOActions.itemList[0].name"
+				 :show="moreActionShow"
+			></u-action-sheet>
 		</view>
 		<view class="content">
 			<uni-list :border="false">
@@ -41,6 +49,11 @@
 				}
 			}, 2000)
 		},
+		methods:{
+			filterAction(e){
+				console.log(e)
+			}
+		},
 		data(){
 			return{
 				status: 'loadmore',
@@ -48,12 +61,40 @@
 				filters:[
 					{
 						title:'类型',
+						actionName:'type',
+						selects:[
+							{
+								name:'手机',
+							},
+							{
+								name:'vin码',
+							},
+							{
+								name:'驾驶证',
+							}
+						]
 					},
 					{
 						title:'月份',
+						actionName:'mouth',
+						selects:[
+							
+						]
 					},
 					{
 						title:'操作人',
+						actionName:'operator',
+						selects:[
+							{
+								name:'张三',
+							},
+							{
+								name:'李四',
+							},
+							{
+								name:'王五',
+							}
+						]
 					}
 				],
 				list:[

@@ -45,7 +45,8 @@
 				
 				teamMenus: [{
 					name: 'plus-square-fill',
-					title: '新增'
+					title: '新增',
+					url:'/pages/menus/profile/add'
 				},
 				{
 					name: 'account-fill',
@@ -96,14 +97,27 @@
 			}
 		},
 		methods:{
+			menuAction(e){
+				console.log(e)
+				uni.navigateTo({
+					url:e.url
+				})
+			},
 			dataAction(e){
 				console.log(e)
 			},
 			customer(e){
-				uni.navigateTo({
-					url:'/pages/menus/profile/list'
-				})
 				console.log(e)
+				switch(e){
+					case 'title':
+						uni.navigateTo({
+							url:'/pages/menus/profile/list'
+						})
+					case 'extra':
+						uni.navigateTo({
+							url:'/pages/menus/profile/list'
+						})
+				}
 			}
 		}
 	}
