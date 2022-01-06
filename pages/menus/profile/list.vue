@@ -2,14 +2,25 @@
 	<view class="profile-list">
 		<view class="condition">
 			<car-filter-button :filters="filters" width="20%" @click="filterAction"></car-filter-button>
-			<u-action-sheet
-				cancelText="取消" 
-				:actions="WOActions.itemList[0].items"
-				 @select="selectMore" 
-				 @close="moreActionShow = false" 
-				 :title="WOActions.itemList[0].name"
-				 :show="moreActionShow"
-			></u-action-sheet>
+			<view v-for="(item,index) in filters" :key="index">
+				<u-action-sheet
+					v-if="item.selects.length > 0"
+					cancelText="取消" 
+					:actions="item.selects"
+					 @select="selectFilter" 
+					 @close="item.show = false" 
+					 :title="item.title"
+					 :show="item.show"
+				></u-action-sheet>
+			</view>
+			<u-datetime-picker
+				:show="dateShow"
+				v-model="date"
+				:minDate="1587524800000"
+				:maxDate="1786778555000"
+				mode="date"
+				@confirm="dateConfirm"
+			></u-datetime-picker>
 		</view>
 		<view class="content">
 			<uni-list :border="false">
@@ -51,17 +62,31 @@
 		},
 		methods:{
 			filterAction(e){
+				e.show = true
+				switch(e.actionName){
+					case 'date':
+						this.dateShow = true;
+				}
+			},
+			dateConfirm(e){
+				this.dateShow = false
+				console.log(e)
+			},
+			selectFilter(e){
 				console.log(e)
 			}
 		},
 		data(){
 			return{
+				date:Number(new Date()),
+				dateShow:true,
 				status: 'loadmore',
 				page: 0,
 				filters:[
 					{
 						title:'类型',
 						actionName:'type',
+						show:false,
 						selects:[
 							{
 								name:'手机',
@@ -76,14 +101,14 @@
 					},
 					{
 						title:'月份',
-						actionName:'mouth',
-						selects:[
-							
-						]
+						actionName:'date',
+						show:false,
+						selects:[]
 					},
 					{
 						title:'操作人',
 						actionName:'operator',
+						show:false,
 						selects:[
 							{
 								name:'张三',
