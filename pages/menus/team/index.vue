@@ -15,16 +15,17 @@
 					:key="index1" 
 					:border="false"
 				>
-					<uni-list-item 
+					<car-list-item 
 					:border="false"
 					:title="child['name']" 
 					:note="child['tel']" 
 					:thumb="child['avatar']"
 					thumbSize="lg"
+					noteSpacing="2rpx"
 					@click="staffEdit(child)"
 					:rightText="child['auth_num']+'项权限'"
 					link>
-					</uni-list-item>
+					</car-list-item>
 				</uni-list>
 			</car-card>
 		</view>
@@ -108,7 +109,7 @@
 			staffEdit(e){
 				if(e.id == undefined) uni.showToast({title:'参数错误',icon:'none',duration: 1500});
 				uni.navigateTo({
-					url:'/pages/team/edit?id='+e.id
+					url:'/pages/menus/team/edit?id='+e.id
 				})
 			},
 			menuAction(e){

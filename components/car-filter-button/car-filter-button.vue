@@ -12,8 +12,8 @@
 		name:'CarFilterButton',
 		props: {
 			filters: {
-				type: Array,
-				default: new Array
+				type: Object,
+				default: new Object
 			},
 			height:{
 				type: String,

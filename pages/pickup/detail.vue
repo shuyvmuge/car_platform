@@ -1,7 +1,7 @@
 <template>
 	<view class="car_detail">
 		<view class="car_header">
-			<uni-card 
+			<car-card 
 				title="苏B99999" 
 				sub-title="王总 18898875042" 
 				:thumbnail="src" 
@@ -19,12 +19,12 @@
 					>
 					</car-button>
 				</view>
-			</uni-card>
+			</car-card>
 		</view>
 		
 		<car-group :title="WOActions.title" mode="card">
 			<car-card 
-			class="uni-card" 
+			class="car-card" 
 			title="美容 $99" 
 			sub-title="2012-10-12 18:36:30"  
 			:thumbnail="src" 

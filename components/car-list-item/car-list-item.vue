@@ -24,14 +24,14 @@
 						:class="{ 'uni-list-item__content--center': thumb || showExtraIcon || showBadge || showSwitch }">
 						<text v-if="title" class="uni-list-item__content-title"
 							:class="[ellipsis !== 0 && ellipsis <= 2 ? 'uni-ellipsis-' + ellipsis : '']">{{ title }}</text>
-						<text v-if="note" class="uni-list-item__content-note">{{ note }}</text>
+						<text v-if="note" class="uni-list-item__content-note" :style="{fontSize:noteSize,letterSpacing:noteSpacing}">{{ note }}</text>
 					</view>
 				</slot>
 				<slot name="footer">
 					<view v-if="rightText || showBadge || showSwitch" class="uni-list-item__extra"
 						:class="{ 'flex--justify': direction === 'column' }">
-						<text v-if="rightText" class="uni-list-item__extra-text">{{ rightText }}</text>
-						<u-badge v-if="showBadge" :type="badgeType" max="9999" :value="badgeText"></u-badge>
+						<text v-if="rightText" class="uni-list-item__extra-text" :style="{color:rightColor,fontSize: rightSize}">{{ rightText }}</text>
+						<u-badge v-if="showBadge" :type="badgeType" max="9999" :style="{fontSize: badgeSize,marginLeft:'10rpx'}" :value="badgeText"></u-badge>
 						<switch v-if="showSwitch" :disabled="disabled" :checked="switchChecked"
 							@change="onSwitchChange" />
 					</view>
@@ -94,6 +94,14 @@
 				type: String,
 				default: ''
 			},
+			noteSize: {
+				type: String,
+				default: '14px'
+			},
+			noteSpacing:{
+				type: String,
+				default: 'auto'
+			},
 			ellipsis: {
 				type: [Number,String],
 				default: 0
@@ -138,9 +146,21 @@
 				type: String,
 				default: 'success'
 			},
+			badgeSize: {
+				type: String,
+				default: '0.9em'
+			},
 			rightText: {
 				type: String,
 				default: ''
+			},
+			rightColor:{
+				type: String,
+				default: '#999'
+			},
+			rightSize:{
+				type: String,
+				default: '14px'
 			},
 			thumb: {
 				type: String,
@@ -443,10 +463,10 @@
 		width: $uni-img-size-sm;
 	}
 
-	.uni-list-item__extra-text {
+	/* .uni-list-item__extra-text {
 		color: $uni-text-color-grey;
 		font-size: $uni-font-size-sm;
-	}
+	} */
 
 	.uni-ellipsis-1 {
 		/* #ifndef APP-NVUE */

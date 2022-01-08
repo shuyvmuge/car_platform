@@ -20,7 +20,7 @@
 								uIcon: 'https://www.uviewui.com/common/logo.png',
 								color: 'blue',
 								name: '团队管理',
-								url: '/pages/team/index'
+								url: '/pages/menus/team/index'
 							},
 							{
 								uIcon: 'https://www.uviewui.com/common/logo.png',
@@ -31,8 +31,8 @@
 							{
 								uIcon: 'https://www.uviewui.com/common/logo.png',
 								color: 'blue',
-								name: '无Url',
-								url: '/pages/team/index'
+								name: '项目表',
+								url: '/pages/menus/item/index'
 							}
 						]
 					},

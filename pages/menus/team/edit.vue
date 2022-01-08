@@ -200,7 +200,7 @@ export default {
 	methods: {
 		itemClick(index,i){
 			uni.navigateTo({
-				url:"/pages/team/editauth?index="+index+"&i="+i
+				url:"/pages/menus/team/editauth?index="+index+"&i="+i
 			})
 		},
 		submit() {

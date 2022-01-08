@@ -2,29 +2,37 @@
 	<view class="profile-list">
 		<view class="condition">
 			<car-filter-button :filters="filters" width="20%" @click="filterAction"></car-filter-button>
-			<view v-for="(item,index) in filters" :key="index">
-				<u-action-sheet
-					v-if="item.selects.length > 0"
-					cancelText="取消" 
-					:actions="item.selects"
-					 @select="selectFilter" 
-					 @close="item.show = false" 
-					 :title="item.title"
-					 :show="item.show"
-				></u-action-sheet>
-			</view>
+			<!-- 类型 -->
+			<u-action-sheet
+				cancelText="取消" 
+				:actions="types"
+				 @select="typeAction" 
+				 @close="typeShow = false" 
+				 title="选择类型"
+				 :show="typeShow"
+			></u-action-sheet>
+			<!-- 日期 -->
 			<u-datetime-picker
 				:show="dateShow"
 				v-model="date"
-				:minDate="1587524800000"
+				:minDate="1420686689000"
 				:maxDate="1786778555000"
-				mode="date"
+				mode="year-month"
 				@confirm="dateConfirm"
 			></u-datetime-picker>
+			<!-- 操作人 -->
+			<u-action-sheet
+				cancelText="取消" 
+				:actions="operators"
+				 @select="opAction" 
+				 @close="opShow = false" 
+				 title="选择类型"
+				 :show="opShow"
+			></u-action-sheet>
 		</view>
 		<view class="content">
 			<uni-list :border="false">
-				 <uni-list-item 
+				 <car-list-item 
 					:border="false"
 					:thumb="item.logo"
 					thumbSize="lg"
@@ -35,7 +43,7 @@
 					:showArrow="true"
 					:rightText="item.username"
 				>
-				</uni-list-item>
+				</car-list-item>
 			</uni-list>
 			<u-loadmore :status="status"/>
 		</view>
@@ -45,7 +53,10 @@
 <script>
 	export default{
 		onReachBottom() {
-			if(this.page >= 3) return ;
+			if(this.page >= 3){
+				this.status = 'nomore';
+				return ;
+			}
 			this.status = 'loading';
 			this.page = ++ this.page;
 			setTimeout(() => {
@@ -62,15 +73,30 @@
 		},
 		methods:{
 			filterAction(e){
-				e.show = true
+				console.log(e.actionName)
 				switch(e.actionName){
 					case 'date':
 						this.dateShow = true;
+						break;
+					case 'type':
+						this.typeShow = true;
+						break;
+					case 'operator':
+						this.opShow = true;
+						break;
 				}
+			},
+			typeAction(e){
+				this.filters.type.title = e.name
+				console.log(e)
 			},
 			dateConfirm(e){
 				this.dateShow = false
+				this.filters.date.title = uni.$u.timeFormat(e.value, 'yyyy-mm');
 				console.log(e)
+			},
+			opAction(e){
+				this.filters.operator.title = e.name
 			},
 			selectFilter(e){
 				console.log(e)
@@ -79,49 +105,51 @@
 		data(){
 			return{
 				date:Number(new Date()),
-				dateShow:true,
+				typeShow:false,
+				opShow:false,
+				dateShow:false,
 				status: 'loadmore',
 				page: 0,
-				filters:[
-					{
+				filters:{
+					type:{
 						title:'类型',
 						actionName:'type',
-						show:false,
-						selects:[
-							{
-								name:'手机',
-							},
-							{
-								name:'vin码',
-							},
-							{
-								name:'驾驶证',
-							}
-						]
 					},
-					{
+					date:{
 						title:'月份',
 						actionName:'date',
-						show:false,
-						selects:[]
 					},
-					{
+					operator:{
 						title:'操作人',
 						actionName:'operator',
-						show:false,
-						selects:[
-							{
-								name:'张三',
-							},
-							{
-								name:'李四',
-							},
-							{
-								name:'王五',
-							}
-						]
+						
+					}
+				},
+				/* replace */
+				types:[
+					{
+						name:'手机',
+					},
+					{
+						name:'vin码',
+					},
+					{
+						name:'驾驶证',
 					}
 				],
+				/* replace */
+				operators:[
+					{
+						name:'张三',
+					},
+					{
+						name:'李四',
+					},
+					{
+						name:'王五',
+					}
+				],
+				/* replace */
 				list:[
 					{
 						id:1,

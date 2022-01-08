@@ -3,9 +3,6 @@
 		<view class="explain">
 			<car-explain :height="80"></car-explain>
 		</view>
-		<view class="action">
-			<car-action :actions="teamMenus" @click="menuAction"></car-action>
-		</view>
 
 		<view class="car-card">
 			<car-card
@@ -13,7 +10,8 @@
 				:subTitle="profile.sub_title" 
 				extraIcon="/static/imgs/circle_right.png"
 				:is-full="true" 
-				:border="false" 
+				:border="true"
+				:shadow="true"
 				padding="0"
 				spacing="0"
 				@click="customer"
@@ -21,7 +19,7 @@
 				<car-data :datas="profile.datas" width="33%" @click="dataAction"></car-data>
 				<uni-list :border="false">
 					 <car-list-item 
-						:border="false"
+						:border="true"
 						v-for="(item,index) in profile.list"
 						:key="index"
 						:title="item.title" 
@@ -35,6 +33,7 @@
 				</uni-list>
 			</car-card>
 		</view>
+		<car-btn title="新增客户" position="fixed" icon="plus-circle" @click="addAction"></></car-btn>
 	</view>
 </template>
 
@@ -97,10 +96,10 @@
 			}
 		},
 		methods:{
-			menuAction(e){
+			addAction(e){
 				console.log(e)
 				uni.navigateTo({
-					url:e.url
+					url:''
 				})
 			},
 			dataAction(e){

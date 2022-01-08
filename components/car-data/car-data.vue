@@ -46,7 +46,7 @@
 			justify-content: center;
 			align-items: center;
 			padding: 20rpx 0;
-			background-color: #f7f7f7;
+			background-color: #f5f9fc;
 			margin: 10rpx;
 			&:active{
 				opacity: .5;

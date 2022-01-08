@@ -17,7 +17,7 @@
 					<view class="uni-card__header-content">
 						<text class="uni-card__header-content-title uni-ellipsis">{{ title }}</text>
 						<text v-if="title&&subTitle"
-							class="uni-card__header-content-subtitle uni-ellipsis">{{ subTitle }}</text>
+							class="uni-card__header-content-subtitle uni-ellipsis" :style="{fontSize: subSize}">{{ subTitle }}</text>
 					</view>
 				</view>
 				<view class="uni-card__header-extra" @click="onClick('extra')">
@@ -71,6 +71,10 @@
 			subTitle: {
 				type: String,
 				default: ''
+			},
+			subSize:{
+				type: String,
+				default: '14px'
 			},
 			padding: {
 				type: String,
@@ -138,7 +142,7 @@
 	$uni-shadow: $uni-shadow-base;
 	$uni-card-title: 15px;
 	$uni-cart-title-color:$uni-main-color;
-	$uni-card-subtitle: 12px;
+	$uni-card-subtitle:  0.9em;
 	$uni-cart-subtitle-color:$uni-secondary-color;
 	$uni-card-spacing: 10px;
 	$uni-card-content-color: $uni-base-color;
@@ -221,7 +225,7 @@
 				}
 
 				.uni-card__header-content-subtitle {
-					font-size: $uni-card-subtitle;
+					// font-size: $uni-card-subtitle;
 					margin-top: 5px;
 					color: $uni-cart-subtitle-color;
 				}
